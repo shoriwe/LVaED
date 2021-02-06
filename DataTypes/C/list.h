@@ -130,8 +130,9 @@ int remove_by_index(struct List *list, unsigned long long int index, bool delete
     if (list->length == 0 || index >= list->length) {
         return 1;
     }
-    struct ListNode *current = list->start;
+    struct ListNode *current;
     if (index == 0) {
+        current = list->start;
         if (list->length == 1) {
             if (delete_object == TRUE && current->copied == TRUE) {
                 free(list->start->value);
@@ -147,31 +148,24 @@ int remove_by_index(struct List *list, unsigned long long int index, bool delete
             }
             free(list->start);
             list->start = next;
-            if (list->length - 1 == 0) {
+            if (list->length - 1 == 1) {
                 list->end = list->start;
             }
         }
     } else if (index == list->length - 1) {
-        if (list->length == 1) {
-            if (delete_object == TRUE && current->copied == TRUE) {
-                free(list->end->value);
-            }
-            free(list->end);
-            list->end = NULL;
-            list->start = NULL;
-        } else {
-            struct ListNode *before = list->end->before;
-            before->next = NULL;
-            if (delete_object == TRUE && current->copied == TRUE) {
-                free(list->end->value);
-            }
-            free(list->end);
-            list->end = before;
-            if (list->length - 1 == 0) {
-                list->start = list->end;
-            }
+        current = list->end;
+        struct ListNode *before = list->end->before;
+        before->next = NULL;
+        if (delete_object == TRUE && current->copied == TRUE) {
+            free(list->end->value);
+        }
+        free(list->end);
+        list->end = before;
+        if (list->length - 1 == 1) {
+            list->start = list->end;
         }
     } else {
+        current = list->start;
         for (unsigned long long int list_index = 0; list_index != list->length; list_index++) {
             if (list_index == index) {
                 break;
@@ -180,8 +174,9 @@ int remove_by_index(struct List *list, unsigned long long int index, bool delete
         }
         if (delete_object == TRUE && current->copied == TRUE) {
             free(current->value);
-            current->next->before = current->before;
         }
+        current->next->before = current->before;
+        current->before->next = current->next;
         free(current);
     }
     list->length--;
@@ -305,6 +300,7 @@ int append(struct List *list, void *value, size_t size) {
     }
     new_node->value_size = size;
     new_node->before = old_last_node;
+    new_node->next = NULL;
     old_last_node->next = new_node;
     list->end = new_node;
     list->length++;
