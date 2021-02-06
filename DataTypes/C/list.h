@@ -154,24 +154,15 @@ int remove_by_index(struct List *list, unsigned long long int index, bool delete
         }
     } else if (index == list->length - 1) {
         current = list->end;
-        if (list->length == 1) {
-            if (delete_object == TRUE && current->copied == TRUE) {
-                free(list->end->value);
-            }
-            free(list->end);
-            list->end = NULL;
-            list->start = NULL;
-        } else {
-            struct ListNode *before = list->end->before;
-            before->next = NULL;
-            if (delete_object == TRUE && current->copied == TRUE) {
-                free(list->end->value);
-            }
-            free(list->end);
-            list->end = before;
-            if (list->length - 1 == 1) {
-                list->start = list->end;
-            }
+        struct ListNode *before = list->end->before;
+        before->next = NULL;
+        if (delete_object == TRUE && current->copied == TRUE) {
+            free(list->end->value);
+        }
+        free(list->end);
+        list->end = before;
+        if (list->length - 1 == 1) {
+            list->start = list->end;
         }
     } else {
         current = list->start;
