@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef unsigned int bool;
+typedef unsigned char bool;
 
 const bool TRUE = 0, FALSE = 1;
 
@@ -67,25 +67,25 @@ void **to_array(struct List *list) {
     return array;
 }
 
-struct ListNode *find(struct List *list, is_equal_condition condition) {
+unsigned long long int find(struct List *list, is_equal_condition condition) {
     if (list == NULL) {
-        return NULL;
+        return SIZE_MAX;
     }
     if (list->length == 0) {
-        return NULL;
+        return SIZE_MAX;
     }
     struct ListNode *current = list->start;
     for (unsigned long long int index = 0; index < list->length; index++) {
         if (condition(current) == TRUE) {
-            return current;
+            return index;
         }
         current = current->next;
     }
-    return NULL;
+    return SIZE_MAX;
 }
 
 bool contains(struct List *list, is_equal_condition condition) {
-    if (find(list, condition) != NULL) {
+    if (find(list, condition) != SIZE_MAX) {
         return TRUE;
     }
     return FALSE;
@@ -190,6 +190,9 @@ int insert(struct List *list, unsigned long long int index, void *value, size_t 
     if (list->length == 0 || index >= list->length) {
         return 1;
     }
+    if (list->length + 1 == SIZE_MAX) {
+        return 1;
+    }
     struct ListNode *new_node = malloc(sizeof(struct ListNode));
     if (size != 0) {
         new_node->value = malloc(size);
@@ -271,6 +274,9 @@ int set(struct List *list, unsigned long long int index, void *value, size_t siz
 
 int append(struct List *list, void *value, size_t size) {
     if (list == NULL) {
+        return 1;
+    }
+    if (list->length + 1 == SIZE_MAX) {
         return 1;
     }
     if (list->start == NULL) {
