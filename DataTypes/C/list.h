@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef unsigned int bool;
+typedef unsigned char bool;
 
 const bool TRUE = 0, FALSE = 1;
 
@@ -67,25 +67,25 @@ void **to_array(struct List *list) {
     return array;
 }
 
-struct ListNode *find(struct List *list, is_equal_condition condition) {
+unsigned long long int find(struct List *list, is_equal_condition condition) {
     if (list == NULL) {
-        return NULL;
+        return SIZE_MAX;
     }
     if (list->length == 0) {
-        return NULL;
+        return SIZE_MAX;
     }
     struct ListNode *current = list->start;
     for (unsigned long long int index = 0; index < list->length; index++) {
         if (condition(current) == TRUE) {
-            return current;
+            return index;
         }
         current = current->next;
     }
-    return NULL;
+    return SIZE_MAX;
 }
 
 bool contains(struct List *list, is_equal_condition condition) {
-    if (find(list, condition) != NULL) {
+    if (find(list, condition) != SIZE_MAX) {
         return TRUE;
     }
     return FALSE;
@@ -123,12 +123,12 @@ void clear(struct List *list) {
     list->end = NULL;
 }
 
-int remove_by_index(struct List *list, unsigned long long int index, bool delete_object) {
+bool remove_by_index(struct List *list, unsigned long long int index, bool delete_object) {
     if (list == NULL) {
-        return 1;
+        return FALSE;
     }
     if (list->length == 0 || index >= list->length) {
-        return 1;
+        return FALSE;
     }
     struct ListNode *current;
     if (index == 0) {
@@ -180,15 +180,18 @@ int remove_by_index(struct List *list, unsigned long long int index, bool delete
         free(current);
     }
     list->length--;
-    return 1;
+    return TRUE;
 }
 
-int insert(struct List *list, unsigned long long int index, void *value, size_t size) {
+bool insert(struct List *list, unsigned long long int index, void *value, size_t size) {
     if (list == NULL) {
-        return 1;
+        return FALSE;
     }
     if (list->length == 0 || index >= list->length) {
-        return 1;
+        return FALSE;
+    }
+    if (list->length + 1 == SIZE_MAX) {
+        return FALSE;
     }
     struct ListNode *new_node = malloc(sizeof(struct ListNode));
     if (size != 0) {
@@ -225,13 +228,13 @@ int insert(struct List *list, unsigned long long int index, void *value, size_t 
         current->before = new_node;
     }
     list->length++;
-    return 0;
+    return TRUE;
 }
 
 /*
  * Different from append since this will insert just before the end
  */
-int insert_end(struct List *list, void *value, size_t size) {
+bool insert_end(struct List *list, void *value, size_t size) {
     return insert(list, list->length - 1, value, size);
 }
 
@@ -239,12 +242,12 @@ int insert_start(struct List *list, void *value, size_t size) {
     return insert(list, 0, value, size);
 }
 
-int set(struct List *list, unsigned long long int index, void *value, size_t size, bool delete_old) {
+bool set(struct List *list, unsigned long long int index, void *value, size_t size, bool delete_old) {
     if (list == NULL) {
-        return 1;
+        return FALSE;
     }
     if (list->length == 0 || index >= list->length) {
-        return 1;
+        return FALSE;
     }
     struct ListNode *current = list->start;
     for (unsigned long long int list_index = 0; list_index != list->length; list_index++) {
@@ -266,12 +269,15 @@ int set(struct List *list, unsigned long long int index, void *value, size_t siz
     if (delete_old == TRUE && current->copied == TRUE) {
         free(old_value);
     }
-    return 0;
+    return FALSE;
 }
 
-int append(struct List *list, void *value, size_t size) {
+bool append(struct List *list, void *value, size_t size) {
     if (list == NULL) {
-        return 1;
+        return FALSE;
+    }
+    if (list->length + 1 == SIZE_MAX) {
+        return FALSE;
     }
     if (list->start == NULL) {
         list->start = malloc(sizeof(struct ListNode));
@@ -287,7 +293,7 @@ int append(struct List *list, void *value, size_t size) {
         list->start->next = NULL;
         list->length++;
         list->end = list->start;
-        return 0;
+        return TRUE;
     }
     struct ListNode *old_last_node = list->end;
     struct ListNode *new_node = malloc(sizeof(struct ListNode));
@@ -304,7 +310,7 @@ int append(struct List *list, void *value, size_t size) {
     old_last_node->next = new_node;
     list->end = new_node;
     list->length++;
-    return 0;
+    return TRUE;
 }
 
 struct ListNode *get(struct List *list, unsigned long long int index) {
