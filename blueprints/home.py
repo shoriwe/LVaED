@@ -12,7 +12,7 @@ def home():
                                  body_page="home/home.html",
                                  person_1_picture="/static/img/Andrea.svg",
                                  person_1_name="Andrea Velasquez",
-                                 person_1_description="",
+                                 person_1_description="Mi nombre es Andrea soy estudiante de la UPB, ingresa para ver los trabajos que he realizado",
                                  person_2_picture="/static/img/Christian.jfif",
                                  person_2_name="Christian Monsalve",
                                  person_2_description="",
