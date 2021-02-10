@@ -158,7 +158,7 @@ public class Lista {
         };
     }
 
-    //el metodo debe retornar si esta o no el objero buscado/ aun no funciona tan bien
+    // Encontrar el indice de un objeto
     public int search(Object object) {
         Iterator<Nodo> i = this.iterator();
         Nodo inode = this.head;
