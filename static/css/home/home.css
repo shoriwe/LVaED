@@ -1,0 +1,67 @@
+.profiles-container {
+    display: flex;
+}
+
+.profile {
+    margin: 0.5%;
+    vertical-align: top;
+    width: 32%;
+    height: 75vh;
+    border-radius: 5px;
+    border: 0 solid black;
+    box-shadow: 1px 1px 10px #888888;
+}
+
+.profile_picture {
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    horiz-align: center;
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.person_name {
+    font-family: "Arial Black", serif;
+    text-align: center;
+    font-size: x-large;
+}
+
+.person_description {
+    opacity: 0.8;
+    horiz-align: center;
+    font-family: Arial, serif;
+    color: black;
+    margin: 5%;
+    line-height: 20px;
+    font-size: large;
+    border-radius: 0 0 5px 5px;
+}
+
+.whoami-title {
+    text-align: center;
+    font-size: x-large;
+    font-family: "Arial Black", serif;
+}
+
+.person_description.p {
+    margin-top: 20%;
+}
+
+.profile:hover > .person_description {
+    display: block;
+}
+
+.profile:hover > .whoami-title {
+    display: block;
+}
+
+.profile:hover > .profile_picture {
+    display: none;
+}
+
+.profile:hover > .person_name {
+    display: none;
+}
