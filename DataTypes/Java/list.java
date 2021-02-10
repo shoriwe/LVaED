@@ -122,17 +122,15 @@ public class Lista {
         longitud = 0;
     }
 
-    //metodo que deberia pasar a un array OJO aun no funciona como deberia
+    // Transforma la lista a un array
     public Object[] toArray() {
-        Object[] array = new Object[Size()];
-        Nodo object = head;
-        int i = 0;
-        while (object.next != null) {
-            array = new Object[i];
-            i++;
-
+        Object[] array = new Object[this.longitud];
+        Nodo current_node = head;
+        for (int list_index = 0; list_index < this.longitud; list_index++) {
+            array[list_index] = current_node.object;
+            current_node = current_node.next;
         }
-        return new Object[0];
+        return array;
 
     }
 
