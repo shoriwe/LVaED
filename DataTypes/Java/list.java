@@ -134,6 +134,27 @@ public class Lista {
 
     }
 
+
+    // Permite obtener una sub lista.
+    public List subList( int fromIndex, int toIndex) {
+
+        List list = new LinkedList();
+        Nodo nod = this.head.next;
+        int count = 0;
+        while (nod != null) {
+            if (count >= fromIndex && count < toIndex) {
+                list.add(nod.object);
+            }
+            nod = nod.next;
+            count++;
+        }
+
+        return list;
+
+    }
+
+
+
     //itarator propuesto
     public Iterator<Nodo> iterator() {
         inode = head;
