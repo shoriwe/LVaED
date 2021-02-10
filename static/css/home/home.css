@@ -50,11 +50,11 @@
     margin-top: 20%;
 }
 
-.profile:hover > .person_description{
+.profile:hover > .person_description {
     display: block;
 }
 
-.profile:hover > .whoami-title{
+.profile:hover > .whoami-title {
     display: block;
 }
 

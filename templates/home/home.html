@@ -6,24 +6,24 @@
 </head>
 <body>
 <div class="profiles-container">
-<div class="profile">
-    <img src="{{ person_1_picture }}" class="profile_picture">
-    <h3 class="person_name">{{ person_1_name }}</h3>
-    <h3 class="whoami-title" hidden>Whoami</h3>
-    <p class="person_description" hidden>{{ person_1_description|safe }}</p>
-</div>
     <div class="profile">
-    <img src="{{ person_2_picture }}" class="profile_picture">
-    <h3 class="person_name">{{ person_2_name }}</h3>
-    <h3 class="whoami-title" hidden>Whoami</h3>
-    <p class="person_description" hidden>{{ person_2_description|safe }}</p>
-</div>
+        <img class="profile_picture" src="{{ person_1_picture }}">
+        <h3 class="person_name">{{ person_1_name }}</h3>
+        <h3 class="whoami-title" hidden>Whoami</h3>
+        <p class="person_description" hidden>{{ person_1_description|safe }}</p>
+    </div>
     <div class="profile">
-    <img src="{{ person_3_picture }}" class="profile_picture">
-    <h3 class="person_name">{{ person_3_name }}</h3>
-    <h3 class="whoami-title" hidden>Whoami</h3>
-    <p class="person_description" hidden>{{ person_3_description|safe }}</p>
-</div>
+        <img class="profile_picture" src="{{ person_2_picture }}">
+        <h3 class="person_name">{{ person_2_name }}</h3>
+        <h3 class="whoami-title" hidden>Whoami</h3>
+        <p class="person_description" hidden>{{ person_2_description|safe }}</p>
+    </div>
+    <div class="profile">
+        <img class="profile_picture" src="{{ person_3_picture }}">
+        <h3 class="person_name">{{ person_3_name }}</h3>
+        <h3 class="whoami-title" hidden>Whoami</h3>
+        <p class="person_description" hidden>{{ person_3_description|safe }}</p>
+    </div>
 </div>
 </body>
 </html>
