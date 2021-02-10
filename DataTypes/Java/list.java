@@ -1,41 +1,12 @@
-
 import java.util.Iterator;
-import java.util.List;
 
 
 public class Lista {
 
-    private Nodo head = null;
     public Nodo tail = null;
+    private Nodo head = null;
     private int longitud = 0;
     private Nodo inode;
-
-    private class Nodo {
-
-        public Object getObject() {
-            return object;
-        }
-
-        public void setObject(Object object) {
-            this.object = object;
-        }
-
-        public Nodo getNext() {
-            return next;
-        }
-
-        public void setNext(Nodo next) {
-            this.next = next;
-        }
-
-        public Object object;
-        public Nodo next = null;
-
-        public Nodo(Object object) {
-            this.object = object;
-        }
-
-    }
 
     //metodo que permite insertar dependiendo de una referencia en la lista
     public void insert(int n, Object object) {
@@ -188,17 +159,44 @@ public class Lista {
     }
 
     //el metodo debe retornar si esta o no el objero buscado/ aun no funciona tan bien
-    public Nodo search(Object object) {
+    public int search(Object object) {
         Iterator<Nodo> i = this.iterator();
-        Nodo inode;
-        while ((inode = i.next()) != null) {
+        Nodo inode = this.head;
+        for (int list_index = 0; list_index < this.longitud; list_index++) {
             if (inode.getObject().toString().equals(object.toString())) {
-                return inode;
+                // El objeto esta en el indice...
+                return list_index;
             }
+            inode = inode.next;
         }
-        return null;
+        // No se encontro ningun objeto
+        return -1;
     }
 
-   
+    private class Nodo {
 
+        public Object object;
+        public Nodo next = null;
+
+        public Nodo(Object object) {
+            this.object = object;
+        }
+
+        public Object getObject() {
+            return object;
+        }
+
+        public void setObject(Object object) {
+            this.object = object;
+        }
+
+        public Nodo getNext() {
+            return next;
+        }
+
+        public void setNext(Nodo next) {
+            this.next = next;
+        }
+
+    }
 }
