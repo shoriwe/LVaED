@@ -1,25 +1,3 @@
-"""
-clear - Done -> Repaired
-append - Done -> Repaired
-insert - Done -> Repaired
-insertHead - Done -> Repaired
-insertTail - Done -> Repaired
-length - Done
-remove - Done -> Repaired
-contains - Done
-find - Done -> Repaired
-get - Done
-set - Done
-sub List - Done
-to array - Done
-head - Done
-tail - Done
-iterator - Done
-getNextTo - Done -> node.next_node
-getBeforeTo - Done -> node.node_before
-"""
-
-
 # Clase nodo creada
 class Node(object):
     def __init__(self, data=None, next_node=None, node_before=None):
