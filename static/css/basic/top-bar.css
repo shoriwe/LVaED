@@ -7,14 +7,13 @@
 }
 
 .buttons-container {
-    column-gap: 5%;
     display: flex;
     justify-content: space-between;
 }
 
 .home-button {
     margin-left: 10%;
-    margin-right: 13%;
+    margin-right: 20%;
     font-size: x-large;
     font-family: "Arial Black", serif;
     color: #9b59b6;
@@ -23,6 +22,7 @@
 
 .presentation-module-button {
     margin-top: 1%;
+    margin-right: 2%;
     padding: 1.1% 1% 0;
     vertical-align: middle;
     text-align: center;
@@ -38,23 +38,16 @@
 }
 
 .presentation-module-button:hover {
-    margin-top: 1%;
-    padding: 1.1% 1% 0;
-    vertical-align: middle;
-    text-align: center;
-    font-size: large;
-    font-family: "Arial Black", serif;
-    color: white;
     background: #2980b9;
     border: 0 solid #74b9ff;
     border-radius: 3px;
     border-bottom-width: 3px;
     border-right-width: 2px;
-    text-decoration: none;
 }
 
 .examples-module-button {
     margin-top: 1%;
+    margin-right: 2%;
     padding: 1.25% 1% 0;
     vertical-align: middle;
     text-align: center;
@@ -70,19 +63,11 @@
 }
 
 .examples-module-button:hover {
-    margin-top: 1%;
-    padding: 1.25% 1% 0;
-    vertical-align: middle;
-    text-align: center;
-    font-size: large;
-    font-family: "Arial Black", serif;
-    color: white;
     background: #2ecc71;
     border: 0 solid #0be881;
     border-radius: 3px;
     border-bottom-width: 3px;
     border-right-width: 2px;
-    text-decoration: none;
 }
 
 .transformation-module-button {
@@ -102,17 +87,9 @@
 }
 
 .transformation-module-button:hover {
-    margin-top: 1%;
-    padding: 1.25% 1% 0;
-    vertical-align: middle;
-    text-align: center;
-    font-size: large;
-    font-family: "Arial Black", serif;
-    color: white;
     background: #EA2027;
     border: 0 solid #ff4d4d;
     border-radius: 3px;
     border-bottom-width: 3px;
     border-right-width: 2px;
-    text-decoration: none;
 }
