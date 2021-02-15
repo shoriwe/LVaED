@@ -1,11 +1,13 @@
 import flask
 
 import blueprints.home
+import blueprints.presentation
 
 
 def setup() -> flask.Flask:
     app = flask.Flask(__name__, template_folder="templates")
     app.register_blueprint(blueprints.home.home_blueprint)
+    app.register_blueprint(blueprints.presentation.presentation_blueprint)
     return app
 
 
