@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static',filename='vendor/css/github-markdown.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<article class="markdown-body">
+    {{ content|safe }}
+</article>
+</body>
+</html>
