@@ -91,32 +91,6 @@ bool contains(struct List *list, is_equal_condition condition) {
     return FALSE;
 }
 
-struct List *sub_list(struct List *list, unsigned long long int start, unsigned long long int end) {
-    if (list == NULL) {
-        return NULL;
-    }
-    if (list->length == 0 || start >= list->length || end >= list->length || start >= end) {
-        return NULL;
-    }
-    struct List *new_list = malloc(sizeof(struct List));
-    new_list->length = end - start + 1;
-    new_list->start = malloc(sizeof(struct ListNode));
-    new_list->end = malloc(sizeof(struct ListNode));
-    struct ListNode *current = list->start;
-    for (unsigned long long int list_index = 0; list_index < list->length; list_index++) {
-        if (list_index == start) {
-            memcpy(new_list->start, current, sizeof(struct ListNode));
-        } else if (list_index == end) {
-            memcpy(new_list->end, current, sizeof(struct ListNode));
-            break;
-        }
-        current = current->next;
-    }
-    new_list->end->next = NULL;
-    new_list->start->before = NULL;
-    return new_list;
-}
-
 void clear(struct List *list) {
     list->length = 0;
     list->start = NULL;
@@ -331,6 +305,31 @@ struct ListNode *get(struct List *list, unsigned long long int index) {
         return NULL;
     }
     return current;
+}
+
+struct List *sub_list(struct List *list, unsigned long long int start, unsigned long long int end) {
+    if (list == NULL) {
+        return NULL;
+    }
+    if (list->length == 0 || start >= list->length || end >= list->length || start >= end) {
+        return NULL;
+    }
+    struct List *result = new_list();
+    bool append_it = FALSE;
+    struct ListNode *current = list->start;
+    for (unsigned long long int list_index = 0; list_index < list->length; list_index++) {
+        if (list_index == start) {
+            append(result, current->value, current->value_size);
+            append_it = TRUE;
+        } else if (list_index == end) {
+            append(result, current->value, current->value_size);
+            break;
+        } else if (append_it == TRUE){
+            append(result, current->value, current->value_size);
+        }
+        current = current->next;
+    }
+    return result;
 }
 
 #endif
