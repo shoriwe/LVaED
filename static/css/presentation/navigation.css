@@ -18,15 +18,16 @@
     box-shadow: 1px 1px 10px #888888;
     text-align: center;
     opacity: 75%;
-    background-color: black;
+    background-color: #ffffff;
 }
 
 .data-type-container:hover {
     opacity: 80%;
+    background-color: #f1f2f6;
 }
 
 .data-type {
-    color: white;
+    color: #2980b9;
     font-size: x-large;
     font-family: "Arial Black", serif;
     position: absolute;
