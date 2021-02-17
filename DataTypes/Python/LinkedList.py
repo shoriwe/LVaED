@@ -165,21 +165,23 @@ class LinkedList(object):
                 return
             current_node = current_node.next_node
 
-    def sub_list(self, start, end):
+    def sub_list(self, start, stop):
         if self.length == 0:
             raise IndexError("The list is empty")
-        if start > self.length or end > self.length:
-            raise IndexError("Index out of range")
-        if start > end:
-            raise IndexError("Start is greater than the end")
-        current_node = self.head
-        new_list = LinkedList()
+        if stop > self.length:
+            stop = self.length
+        if start >= self.length:
+            raise IndexError("start is bigger or equal than the length of the list")
+        sub_list = LinkedList()
+        append_it = False
+        node = self.head
         for list_index in range(self.length):
             if list_index == start:
-                new_list.head = Node(current_node.data, current_node.next_node)
-            if list_index == end - 1:
-                new_list.tail = Node(current_node.data, node_before=current_node.node_before)
-                break
-            current_node = current_node.next_node
-        new_list.length = end - start
-        return new_list
+                sub_list.append(node.data)
+                append_it = True
+                if start == stop:
+                    break
+            elif append_it and list_index < stop:
+                sub_list.append(node.data)
+            node = node.next_node
+        return sub_list
