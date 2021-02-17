@@ -7,13 +7,14 @@
 }
 
 .buttons-container {
+    position: absolute;
+    margin-left: 30%;
     display: flex;
-    justify-content: space-between;
+
 }
 
 .home-button {
     margin-left: 10%;
-    margin-right: 20%;
     font-size: x-large;
     font-family: "Arial Black", serif;
     color: #9b59b6;
