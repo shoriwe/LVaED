@@ -17,5 +17,5 @@ def presentation():
 def presentation_list():
     return flask.render_template("basic/page.html",
                                  page_name="List",
-                                 body_page="presentation/article.html",
+                                 body_page="article.html",
                                  content=flask.current_app.config["articles"].list())
