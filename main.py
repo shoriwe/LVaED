@@ -1,7 +1,7 @@
-import os
+import re
 
 import flask
-import requests
+import markdown
 
 import blueprints.home
 import blueprints.presentation
@@ -15,26 +15,27 @@ class Articles(object):
         return self.__list
 
 
-def render_article(article_path: str, output_path: str) -> str:
-    if not os.path.exists(output_path):
-        article = open(article_path)
-        headers = {
-            "Accept": "application/vnd.github.v3+json",
-        }
-        data = {"text": article.read()}
-        article.close()
-        response = requests.post(
-            "https://api.github.com/markdown",
-            json=data,
-            headers=headers
-        )
-        file = open(output_path, "w")
-        file.write(response.text)
-        file.flush()
-        file.close()
-    file = open(output_path)
-    html = file.read()
-    file.close()
+def pygmentize(raw_markdown: str) -> str:
+    languages = re.findall(re.compile("(?<=^```)\\w+$", re.M), raw_markdown)
+    last_index = 0
+    for language in languages:
+        list_markdown = raw_markdown.split("\n")
+
+        code_block_start_index = list_markdown.index(f"```{language}", last_index)
+        code_block_end_index = list_markdown.index("```", code_block_start_index)
+        for index in range(code_block_start_index + 1, code_block_end_index):
+            list_markdown[index] = f"\t{list_markdown[index]}"
+        list_markdown[code_block_start_index] = "\t" + list_markdown[code_block_start_index].replace("```", ":::")
+        list_markdown[code_block_end_index] = "\n"
+        raw_markdown = "\n".join(list_markdown)
+        last_index = code_block_end_index
+    return raw_markdown
+
+
+def render_article(article_path: str, _: str) -> str:
+    with open(article_path) as file:
+        content = file.read()
+    html = markdown.markdown(pygmentize(content), extensions=["codehilite"])
     return html
 
 
