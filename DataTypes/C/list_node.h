@@ -7,6 +7,10 @@
 
 #include <stdio.h>
 
+typedef unsigned char bool;
+
+const bool TRUE = 1, FALSE = 0;
+
 typedef struct ListNode {
     char copied;
     void *value;

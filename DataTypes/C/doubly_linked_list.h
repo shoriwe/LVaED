@@ -7,10 +7,6 @@
 #include <string.h>
 #include "list_node.h"
 
-typedef unsigned char bool;
-
-const bool TRUE = 0, FALSE = 1;
-
 typedef bool (*is_equal_condition)(struct ListNode *node);
 
 typedef struct DoublyLinkedList {
