@@ -1,33 +1,26 @@
 #pragma once
-#ifndef COLLECTIONS_LIST
-#define COLLECTIONS_LIST
+#ifndef COLLECTIONS_SIMPLE_LINKED_LIST
+#define COLLECTIONS_SIMPLE_LINKED_LIST
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "list_node.h"
 
 typedef unsigned char bool;
 
 const bool TRUE = 0, FALSE = 1;
 
-typedef struct ListNode {
-    char copied;
-    void *value;
-    size_t value_size;
-    struct ListNode *next;
-    struct ListNode *before;
-} ListNode;
-
 typedef bool (*is_equal_condition)(struct ListNode *node);
 
-typedef struct List {
+typedef struct DoublyLinkedList {
     unsigned long long int length;
     struct ListNode *start;
     struct ListNode *end;
-} List;
+} DoublyLinkedList;
 
-struct List *new_list() {
-    struct List *list = malloc(sizeof(struct List));
+struct DoublyLinkedList *DoublyLinkedList_new() {
+    struct DoublyLinkedList *list = malloc(sizeof(struct DoublyLinkedList));
     list->length = 0;
     list->start = NULL;
     list->end = NULL;
@@ -35,23 +28,23 @@ struct List *new_list() {
 }
 
 /*
- * get - Done
+ * DoublyLinkedList_get - Done
  * append_cpy - Done
  * append_nocpy - Done
- * set - Done
- * insert - Done
- * sub_list - Done
- * insert_end - Done
- * insert_start - Done
+ * DoublyLinkedList_set - Done
+ * DoublyLinkedList_insert - Done
+ * DoublyLinkedList_sub_list - Done
+ * DoublyLinkedList_insert_end - Done
+ * DoublyLinkedList_insert_start - Done
  * remove - Done
  * clear - Done
- * find - Done
- * contains - Done
- * to_array - Done
+ * DoublyLinkedList_find - Done
+ * DoublyLinkedList_contains - Done
+ * DoublyLinkedList_to_array - Done
  * sort
  */
 
-void **to_array(struct List *list) {
+void **DoublyLinkedList_to_array(struct DoublyLinkedList *list) {
     if (list == NULL) {
         return NULL;
     }
@@ -67,7 +60,7 @@ void **to_array(struct List *list) {
     return array;
 }
 
-unsigned long long int find(struct List *list, is_equal_condition condition) {
+unsigned long long int DoublyLinkedList_find(struct DoublyLinkedList *list, is_equal_condition condition) {
     if (list == NULL) {
         return SIZE_MAX;
     }
@@ -84,20 +77,20 @@ unsigned long long int find(struct List *list, is_equal_condition condition) {
     return SIZE_MAX;
 }
 
-bool contains(struct List *list, is_equal_condition condition) {
-    if (find(list, condition) != SIZE_MAX) {
+bool DoublyLinkedList_contains(struct DoublyLinkedList *list, is_equal_condition condition) {
+    if (DoublyLinkedList_find(list, condition) != SIZE_MAX) {
         return TRUE;
     }
     return FALSE;
 }
 
-void clear(struct List *list) {
+void clear(struct DoublyLinkedList *list) {
     list->length = 0;
     list->start = NULL;
     list->end = NULL;
 }
 
-bool remove_by_index(struct List *list, unsigned long long int index, bool delete_object) {
+bool DoublyLinkedList_remove_by_index(struct DoublyLinkedList *list, unsigned long long int index, bool delete_object) {
     if (list == NULL) {
         return FALSE;
     }
@@ -157,7 +150,7 @@ bool remove_by_index(struct List *list, unsigned long long int index, bool delet
     return TRUE;
 }
 
-bool insert(struct List *list, unsigned long long int index, void *value, size_t size) {
+bool DoublyLinkedList_insert(struct DoublyLinkedList *list, unsigned long long int index, void *value, size_t size) {
     if (list == NULL) {
         return FALSE;
     }
@@ -206,17 +199,17 @@ bool insert(struct List *list, unsigned long long int index, void *value, size_t
 }
 
 /*
- * Different from append since this will insert just before the end
+ * Different from DoublyLinkedList_append since this will DoublyLinkedList_insert just before the end
  */
-bool insert_end(struct List *list, void *value, size_t size) {
-    return insert(list, list->length - 1, value, size);
+bool DoublyLinkedList_insert_end(struct DoublyLinkedList *list, void *value, size_t size) {
+    return DoublyLinkedList_insert(list, list->length - 1, value, size);
 }
 
-int insert_start(struct List *list, void *value, size_t size) {
-    return insert(list, 0, value, size);
+int DoublyLinkedList_insert_start(struct DoublyLinkedList *list, void *value, size_t size) {
+    return DoublyLinkedList_insert(list, 0, value, size);
 }
 
-bool set(struct List *list, unsigned long long int index, void *value, size_t size, bool delete_old) {
+bool DoublyLinkedList_set(struct DoublyLinkedList *list, unsigned long long int index, void *value, size_t size, bool delete_old) {
     if (list == NULL) {
         return FALSE;
     }
@@ -246,7 +239,7 @@ bool set(struct List *list, unsigned long long int index, void *value, size_t si
     return FALSE;
 }
 
-bool append(struct List *list, void *value, size_t size) {
+bool DoublyLinkedList_append(struct DoublyLinkedList *list, void *value, size_t size) {
     if (list == NULL) {
         return FALSE;
     }
@@ -287,7 +280,7 @@ bool append(struct List *list, void *value, size_t size) {
     return TRUE;
 }
 
-struct ListNode *get(struct List *list, unsigned long long int index) {
+struct ListNode *DoublyLinkedList_get(struct DoublyLinkedList *list, unsigned long long int index) {
     if (list == NULL) {
         return NULL;
     }
@@ -307,25 +300,25 @@ struct ListNode *get(struct List *list, unsigned long long int index) {
     return current;
 }
 
-struct List *sub_list(struct List *list, unsigned long long int start, unsigned long long int end) {
+struct DoublyLinkedList *DoublyLinkedList_sub_list(struct DoublyLinkedList *list, unsigned long long int start, unsigned long long int end) {
     if (list == NULL) {
         return NULL;
     }
     if (list->length == 0 || start >= list->length || end >= list->length || start >= end) {
         return NULL;
     }
-    struct List *result = new_list();
+    struct DoublyLinkedList *result = DoublyLinkedList_new();
     bool append_it = FALSE;
     struct ListNode *current = list->start;
     for (unsigned long long int list_index = 0; list_index < list->length; list_index++) {
         if (list_index == start) {
-            append(result, current->value, current->value_size);
+            DoublyLinkedList_append(result, current->value, current->value_size);
             append_it = TRUE;
         } else if (list_index == end) {
-            append(result, current->value, current->value_size);
+            DoublyLinkedList_append(result, current->value, current->value_size);
             break;
-        } else if (append_it == TRUE){
-            append(result, current->value, current->value_size);
+        } else if (append_it == TRUE) {
+            DoublyLinkedList_append(result, current->value, current->value_size);
         }
         current = current->next;
     }
