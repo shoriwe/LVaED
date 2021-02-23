@@ -4,7 +4,9 @@
 
 #ifndef COLLECTIONS_LIST_NODE_H
 #define COLLECTIONS_LIST_NODE_H
+
 #include <stdio.h>
+
 typedef struct ListNode {
     char copied;
     void *value;

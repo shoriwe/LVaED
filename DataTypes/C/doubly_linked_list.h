@@ -209,7 +209,8 @@ int DoublyLinkedList_insert_start(struct DoublyLinkedList *list, void *value, si
     return DoublyLinkedList_insert(list, 0, value, size);
 }
 
-bool DoublyLinkedList_set(struct DoublyLinkedList *list, unsigned long long int index, void *value, size_t size, bool delete_old) {
+bool DoublyLinkedList_set(struct DoublyLinkedList *list, unsigned long long int index, void *value, size_t size,
+                          bool delete_old) {
     if (list == NULL) {
         return FALSE;
     }
@@ -300,7 +301,8 @@ struct ListNode *DoublyLinkedList_get(struct DoublyLinkedList *list, unsigned lo
     return current;
 }
 
-struct DoublyLinkedList *DoublyLinkedList_sub_list(struct DoublyLinkedList *list, unsigned long long int start, unsigned long long int end) {
+struct DoublyLinkedList *
+DoublyLinkedList_sub_list(struct DoublyLinkedList *list, unsigned long long int start, unsigned long long int end) {
     if (list == NULL) {
         return NULL;
     }
