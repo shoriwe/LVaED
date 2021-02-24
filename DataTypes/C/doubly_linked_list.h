@@ -1,13 +1,11 @@
 #pragma once
-#ifndef COLLECTIONS_SIMPLE_LINKED_LIST
-#define COLLECTIONS_SIMPLE_LINKED_LIST
+#ifndef COLLECTIONS_DOUBLY_LINKED_LIST
+#define COLLECTIONS_DOUBLY_LINKED_LIST
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "list_node.h"
-
-typedef bool (*is_equal_condition)(struct ListNode *node);
 
 typedef struct DoublyLinkedList {
     unsigned long long int length;
@@ -33,7 +31,7 @@ struct DoublyLinkedList *DoublyLinkedList_new() {
  * DoublyLinkedList_insert_end - Done
  * DoublyLinkedList_insert_start - Done
  * remove - Done
- * clear - Done
+ * DoublyLinkedList_clear - Done
  * DoublyLinkedList_find - Done
  * DoublyLinkedList_contains - Done
  * DoublyLinkedList_to_array - Done
@@ -80,7 +78,7 @@ bool DoublyLinkedList_contains(struct DoublyLinkedList *list, is_equal_condition
     return FALSE;
 }
 
-void clear(struct DoublyLinkedList *list) {
+void DoublyLinkedList_clear(struct DoublyLinkedList *list) {
     list->length = 0;
     list->start = NULL;
     list->end = NULL;
