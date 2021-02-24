@@ -18,4 +18,7 @@ typedef struct ListNode {
     struct ListNode *next;
     struct ListNode *before;
 } ListNode;
+
+typedef bool (*is_equal_condition)(struct ListNode *node);
+
 #endif //COLLECTIONS_LIST_NODE_H
