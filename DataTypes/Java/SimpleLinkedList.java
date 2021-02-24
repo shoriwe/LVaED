@@ -1,7 +1,7 @@
 import java.util.Iterator;
 
 
-public class Lista {
+public class ListaSimple {
 
     public Nodo tail = null;
     private Nodo head = null;
