@@ -78,4 +78,4 @@ public void Append(Object value) {
     }
 ```
 ## Doubly Circular Linked Lists
-ALL
+ANY
