@@ -4,30 +4,32 @@
 
 #ifndef COLLECTIONS_LIST_STACK_H
 #define COLLECTIONS_LIST_STACK_H
+
 #include "../Lists/doubly_linked_list.h"
 #include "../primitives.h"
+
 typedef struct ListStack {
-    DoublyLinkedList* content;
+    DoublyLinkedList *content;
     bool reversed;
 } ListStack;
 
-struct ListStack* ListStack_new() {
-    struct ListStack*  result = malloc(sizeof(struct ListStack));
+struct ListStack *ListStack_new() {
+    struct ListStack *result = malloc(sizeof(struct ListStack));
     result->content = DoublyLinkedList_new();
     result->reversed = FALSE;
     return result;
 }
 
-void ListStack_clear(struct ListStack* list_stack) {
+void ListStack_clear(struct ListStack *list_stack) {
     DoublyLinkedList_clear(list_stack->content);
 }
 
-bool ListStack_is_empty(struct ListStack* list_stack) {
+bool ListStack_is_empty(struct ListStack *list_stack) {
     return list_stack->content->length == 0;
 }
 
-void* ListStack_peek(struct ListStack* list_stack) {
-    struct ListNode* result;
+void *ListStack_peek(struct ListStack *list_stack) {
+    struct ListNode *result;
     if (list_stack->content->length == 0) {
         return NULL;
     }
@@ -39,8 +41,8 @@ void* ListStack_peek(struct ListStack* list_stack) {
     return result;
 }
 
-void* ListStack_pop(struct ListStack* list_stack) {
-    void* result;
+void *ListStack_pop(struct ListStack *list_stack) {
+    void *result;
     if (list_stack->content->length == 0) {
         return NULL;
     }
@@ -54,7 +56,7 @@ void* ListStack_pop(struct ListStack* list_stack) {
     return result;
 }
 
-void ListStack_push(struct ListStack* list_stack, void* value, size_t size) {
+void ListStack_push(struct ListStack *list_stack, void *value, size_t size) {
     if (list_stack->reversed) {
         if (list_stack->content->length == 0) {
             DoublyLinkedList_append(list_stack->content, value, size);
@@ -66,15 +68,16 @@ void ListStack_push(struct ListStack* list_stack, void* value, size_t size) {
     };
 }
 
-size_t ListStack_size(struct ListStack* list_stack) {
+size_t ListStack_size(struct ListStack *list_stack) {
     return list_stack->content->length;
 }
 
-bool ListStack_search(struct ListStack* list_stack, is_equal_condition condition){
+bool ListStack_search(struct ListStack *list_stack, is_equal_condition condition) {
     return DoublyLinkedList_contains(list_stack->content, condition);
 }
 
-void ListStack_reverse(struct ListStack* list_stack) {
+void ListStack_reverse(struct ListStack *list_stack) {
     list_stack->reversed = !list_stack->reversed;
 }
+
 #endif //COLLECTIONS_LIST_STACK_H
