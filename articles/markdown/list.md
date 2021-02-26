@@ -55,6 +55,27 @@ Andrea
 ## Doubly Linked Lists
 Christian
 ## Simple Circular Linked Lists
-Antonio
+[![CircularSimpleLinkedList](/static/img/DataTypes/Circurlar_linked_list.png)](https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png)
+
+The difference between circular and more traditional list is that this kind of list doesn't have an end, or at least they don't have it when we iterate over it. This means that we can still point to a virtual last `node` but this last node will have its `next`, pointing to the first value this way, when ever we request the next value we will received.
+
+In resume, this list has the same basic behavior of a `Simple Linked List` but additionally its last element is pointing in his `next` value to the first element of the list.
+
+```java
+// Append example in Java of a Simple Circular Linked List
+public void Append(Object value) {
+        if (this.Length == 0) {
+            this.End = new ListNode(value);
+            this.Start = this.End;
+        } else {
+            ListNode old_end = this.End;
+            this.End = new ListNode(value);
+            old_end.Next = this.End;
+            this.End.Before = old_end;
+        }
+        this.Length++;
+        this.End.Next = this.Start; // Unique behavior of circular lists
+    }
+```
 ## Doubly Circular Linked Lists
 ALL
