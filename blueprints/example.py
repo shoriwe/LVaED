@@ -4,7 +4,7 @@ import flask
 
 __all__ = ["example_blueprint"]
 
-example_blueprint = flask.Blueprint("Example", "Example")
+example_blueprint = flask.Blueprint("Example", "example")
 
 
 @example_blueprint.route("/examples")
