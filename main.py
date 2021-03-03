@@ -11,14 +11,6 @@ import blueprints.home
 import blueprints.presentation
 
 
-class Articles(object):
-    def __init__(self, list_article_html: str):
-        self.__list = list_article_html
-
-    def list(self):
-        return self.__list
-
-
 class Zipper(object):
     def __init__(self):
         self._content = None
@@ -46,26 +38,6 @@ class Zipper(object):
         return self._content
 
 
-class Libraries(object):
-    def __init__(self, all_: bytes, c_library: bytes, java_library: bytes, python_library: bytes):
-        self.__all = all_
-        self.__c_library = c_library
-        self.__java_library = java_library
-        self.__python_library = python_library
-
-    def all(self):
-        return self.__all
-
-    def c(self):
-        return self.__c_library
-
-    def java(self):
-        return self.__java_library
-
-    def python(self):
-        return self.__python_library
-
-
 def pygmentize(raw_markdown: str) -> str:
     languages = re.findall(re.compile("(?<=^```)\\w+$", re.M), raw_markdown)
     last_index = 0
@@ -83,7 +55,7 @@ def pygmentize(raw_markdown: str) -> str:
     return raw_markdown
 
 
-def render_article(article_path: str, _: str) -> str:
+def render_article(article_path: str) -> str:
     with open(article_path) as file:
         content = file.read()
     html = markdown.markdown(pygmentize(content), extensions=["codehilite"])
@@ -97,18 +69,47 @@ def zip_library(library_directory: str) -> Zipper:
 
 
 def load_articles(app: flask.Flask):
-    app.config["articles"] = Articles(
-        render_article("markdown/articles/list.md", "articles/html/list.html")
-    )
+    app.config["articles"] = {
+        "list": render_article("markdown/articles/list.md")
+    }
 
 
 def load_libraries(app: flask.Flask):
-    app.config["libraries"] = Libraries(
-        zip_library("DataTypes").content(),
-        zip_library("DataTypes/C").content(),
-        zip_library("DataTypes/Java").content(),
-        zip_library("DataTypes/Python").content()
-    )
+    app.config["libraries"] = {
+        "all": zip_library("DataTypes").content(),
+        "c": zip_library("DataTypes/C").content(),
+        "java": zip_library("DataTypes/Java").content(),
+        "python": zip_library("DataTypes/Python").content()
+    }
+
+
+def load_examples(app: flask.Flask):
+    app.config["examples"] = {}
+    app.config["examples"]["c"] = {
+        "simple_list": render_article("markdown/examples/c/simple_list.md"),
+        "double_list": render_article("markdown/examples/c/double_list.md"),
+        "circular_simple_list": render_article("markdown/examples/c/circular_simple_list.md"),
+        "circular_double_list": render_article("markdown/examples/c/circular_double_list.md"),
+        "array_stack": render_article("markdown/examples/c/array_stack.md"),
+        "list_stack": render_article("markdown/examples/c/list_stack.md")
+
+    }
+    app.config["examples"]["java"] = {
+        "simple_list": render_article("markdown/examples/java/simple_list.md"),
+        "double_list": render_article("markdown/examples/java/double_list.md"),
+        "circular_simple_list": render_article("markdown/examples/java/circular_simple_list.md"),
+        "circular_double_list": render_article("markdown/examples/java/circular_double_list.md"),
+        "array_stack": render_article("markdown/examples/java/array_stack.md"),
+        "list_stack": render_article("markdown/examples/java/list_stack.md")
+    }
+    app.config["examples"]["python"] = {
+        "simple_list": render_article("markdown/examples/python/simple_list.md"),
+        "double_list": render_article("markdown/examples/python/double_list.md"),
+        "circular_simple_list": render_article("markdown/examples/python/circular_simple_list.md"),
+        "circular_double_list": render_article("markdown/examples/python/circular_double_list.md"),
+        "array_stack": render_article("markdown/examples/python/array_stack.md"),
+        "list_stack": render_article("markdown/examples/python/list_stack.md")
+    }
 
 
 def setup() -> flask.Flask:
@@ -118,6 +119,7 @@ def setup() -> flask.Flask:
     app.register_blueprint(blueprints.example.example_blueprint)
     load_articles(app)
     load_libraries(app)
+    load_examples(app)
     return app
 
 
