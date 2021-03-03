@@ -38,23 +38,6 @@ void SimpleCircularLinkedList_update(struct SimpleCircularLinkedList* list) {
     list->end->next = list->start;
 }
 
-/*
- * SimpleCircularLinkedList_get
- * append_cpy
- * append_nocpy
- * SimpleCircularLinkedList_set
- * SimpleCircularLinkedList_insert
- * SimpleCircularLinkedList_sub_list
- * SimpleCircularLinkedList_insert_end
- * SimpleCircularLinkedList_insert_start
- * remove
- * SimpleCircularLinkedList_clear
- * SimpleCircularLinkedList_find
- * SimpleCircularLinkedList_contains
- * SimpleCircularLinkedList_to_array
- * sort
- */
-
 void **SimpleCircularLinkedList_to_array(struct SimpleCircularLinkedList *list) {
     return SimpleLinkedList_to_array(list->content);
 }

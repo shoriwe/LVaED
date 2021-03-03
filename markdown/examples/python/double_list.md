@@ -5,23 +5,6 @@
 # Code
 
 ```python
-"""
-clear - Done
-append - Done
-length - Done
-insert - Done
-set - Done
-contains - Done
-index - Done
-get - Done
-sub-list - Done
-to_vanilla_list - Done
-head - Done
-tail - Done
-remove - Done
-remove_node - Done
-remove_value - Done
-"""
 import list_node
 
 
