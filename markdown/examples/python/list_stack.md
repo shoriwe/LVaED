@@ -1,8 +1,6 @@
 # List Based Stack (Python Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```python
 ```

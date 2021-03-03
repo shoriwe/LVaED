@@ -1,8 +1,6 @@
 # Double Linked List (Python Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```python
 import list_node

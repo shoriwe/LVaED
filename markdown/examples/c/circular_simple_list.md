@@ -1,8 +1,6 @@
 # Circular Simple Linked List (C Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```c
 #ifndef COLLECTIONS_SIMPLE_CIRCULAR_LINKED_LIST_H

@@ -1,8 +1,6 @@
 # Double Linked List (C Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```c
 #pragma once

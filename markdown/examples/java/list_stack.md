@@ -1,8 +1,6 @@
 # List Based Stack (Java Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```java
 ```

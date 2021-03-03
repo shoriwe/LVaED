@@ -1,8 +1,6 @@
 # Circular Double Linked List (C Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```c
 #ifndef COLLECTIONS_DOUBLE_CIRCULAR_LINKED_LIST_H

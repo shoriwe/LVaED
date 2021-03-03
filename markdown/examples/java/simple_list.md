@@ -1,8 +1,6 @@
 # Simple Linked List (Java Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```java
 import java.util.Iterator;

@@ -1,8 +1,6 @@
 # List Based Stack (C Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```c
 #ifndef COLLECTIONS_LIST_STACK_H

@@ -1,8 +1,6 @@
 # Double Linked List (Java Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```java
 package LVaED.Lists.DoublyLinkedList;

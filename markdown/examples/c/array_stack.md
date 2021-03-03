@@ -1,8 +1,6 @@
 # Array Based Stack (C Implementation)
 
-# Description
-
-# Code
+# Source Code
 
 ```c
 #ifndef COLLECTIONS_ARRAY_STACK_H
