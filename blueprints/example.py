@@ -7,6 +7,14 @@ __all__ = ["example_blueprint"]
 example_blueprint = flask.Blueprint("Example", "Example")
 
 
+@example_blueprint.route("/examples")
+def examples():
+    return flask.render_template("basic/page.html",
+                                 page_name="Examples",
+                                 body_page="examples/navigation.html",
+                                 )
+
+
 @example_blueprint.route("/examples/download/<library>")
 def download(library: str):
     if library == "c":
