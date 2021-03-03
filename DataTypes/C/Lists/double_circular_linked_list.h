@@ -32,23 +32,6 @@ void DoubleCircularLinkedList_update(struct DoubleCircularLinkedList* list) {
     list->start->before = list->end;
 }
 
-/*
- * DoubleCircularLinkedList_get
- * append_cpy
- * append_nocpy
- * DoubleCircularLinkedList_set
- * DoubleCircularLinkedList_insert
- * DoubleCircularLinkedList_sub_list
- * DoubleCircularLinkedList_insert_end
- * DoubleCircularLinkedList_insert_start
- * remove
- * DoubleCircularLinkedList_clear
- * DoubleCircularLinkedList_find
- * DoubleCircularLinkedList_contains
- * DoubleCircularLinkedList_to_array
- * sort
- */
-
 void **DoubleCircularLinkedList_to_array(struct DoubleCircularLinkedList *list) {
     return DoublyLinkedList_to_array(list->content);
 }

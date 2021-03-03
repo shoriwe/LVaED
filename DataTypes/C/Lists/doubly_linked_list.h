@@ -21,23 +21,6 @@ struct DoublyLinkedList *DoublyLinkedList_new() {
     return list;
 }
 
-/*
- * DoublyLinkedList_get - Done
- * append_cpy - Done
- * append_nocpy - Done
- * DoublyLinkedList_set - Done
- * DoublyLinkedList_insert - Done
- * DoublyLinkedList_sub_list - Done
- * DoublyLinkedList_insert_end - Done
- * DoublyLinkedList_insert_start - Done
- * remove - Done
- * DoublyLinkedList_clear - Done
- * DoublyLinkedList_find - Done
- * DoublyLinkedList_contains - Done
- * DoublyLinkedList_to_array - Done
- * sort
- */
-
 void **DoublyLinkedList_to_array(struct DoublyLinkedList *list) {
     if (list == NULL) {
         return NULL;
