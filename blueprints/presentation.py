@@ -13,9 +13,11 @@ def presentation():
                                  )
 
 
-@presentation_blueprint.route("/presentation/list")
-def presentation_list():
-    return flask.render_template("basic/page.html",
-                                 page_name="List",
-                                 body_page="article.html",
-                                 content=flask.current_app.config["articles"].list())
+@presentation_blueprint.route("/presentation/<datatype>")
+def present_datatype(datatype: str):
+    if datatype == "list":
+        return flask.render_template("basic/page.html",
+                                     page_name="List",
+                                     body_page="article.html",
+                                     content=flask.current_app.config["articles"].list())
+    return flask.redirect("/home")

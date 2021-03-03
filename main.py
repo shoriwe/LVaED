@@ -98,7 +98,7 @@ def zip_library(library_directory: str) -> Zipper:
 
 def load_articles(app: flask.Flask):
     app.config["articles"] = Articles(
-        render_article("articles/markdown/list.md", "articles/html/list.html")
+        render_article("markdown/articles/list.md", "articles/html/list.html")
     )
 
 
