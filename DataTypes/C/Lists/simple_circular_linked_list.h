@@ -1,7 +1,3 @@
-//
-// Created by universidad on 2/24/2021.
-//
-
 #ifndef COLLECTIONS_SIMPLE_CIRCULAR_LINKED_LIST_H
 #define COLLECTIONS_SIMPLE_CIRCULAR_LINKED_LIST_H
 

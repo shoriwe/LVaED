@@ -1,7 +1,3 @@
-//
-// Created by universidad on 2/26/2021.
-//
-
 #ifndef COLLECTIONS_ARRAY_STACK_H
 #define COLLECTIONS_ARRAY_STACK_H
 
