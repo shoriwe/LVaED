@@ -1,0 +1,154 @@
+.library-download-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 75px;
+}
+
+.download-libraries-title {
+    font-family: "Arial Black", serif;
+    font-size: x-large;
+    color: #3d3d3d;
+}
+
+.library-links-container {
+    display: none;
+}
+
+.all-libraries {
+    margin-top: 1%;
+    margin-right: 2%;
+    padding: 1.1% 1% 0;
+    vertical-align: middle;
+    text-align: center;
+    font-size: x-large;
+    font-family: "Arial Black", serif;
+    color: white;
+    background: #2ecc71;
+    border: 0 solid #27ae60;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+    text-decoration: none;
+}
+
+.c-library {
+    margin-top: 1%;
+    margin-right: 2%;
+    padding: 1.1% 1% 0;
+    vertical-align: middle;
+    text-align: center;
+    font-size: x-large;
+    font-family: "Arial Black", serif;
+    color: #f5f6fa;
+    background: #74b9ff;
+    border: 0 solid #2980b9;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+    text-decoration: none;
+}
+
+.java-library {
+    margin-top: 1%;
+    margin-right: 2%;
+    padding: 1.1% 1% 0;
+    vertical-align: middle;
+    text-align: center;
+    font-size: x-large;
+    font-family: "Arial Black", serif;
+    color: white;
+    background: #e67e22;
+    border: 0 solid #d35400;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+    text-decoration: none;
+}
+
+.python-library {
+    margin-top: 1%;
+    margin-right: 2%;
+    padding: 1.1% 1% 0;
+    vertical-align: middle;
+    text-align: center;
+    font-size: x-large;
+    font-family: "Arial Black", serif;
+    color: white;
+    background: #2e86de;
+    border: 0 solid #2980b9;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+    text-decoration: none;
+}
+
+.all-libraries:hover {
+    background: #27ae60;
+    border: 0 solid #2ecc71;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+}
+
+.c-library:hover {
+    background: #2980b9;
+    border: 0 solid #74b9ff;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+}
+
+.java-library:hover {
+    background: #d35400;
+    border: 0 solid #e67e22;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+}
+
+.python-library:hover {
+    background: #2980b9;
+    border: 0 solid #2e86de;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+}
+
+.library-download-container:hover > .download-libraries-title {
+    display: none;
+}
+
+.library-download-container:hover > .library-links-container {
+    display: flex;
+}
+
+.individual-example-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.example-datatype-container {
+    position: relative;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 250px;
+    border-radius: 5px;
+    border: 0 solid black;
+    box-shadow: 1px 1px 10px #888888;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.example-datatype-container:hover > .data-type {
+    display: none;
+}
+
+.example-datatype-container:hover > .individual-example-container {
+    display: flex;
+}

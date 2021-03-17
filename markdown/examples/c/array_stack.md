@@ -1,3 +1,8 @@
+# Array Based Stack (C Implementation)
+
+# Source Code
+
+```c
 #ifndef COLLECTIONS_ARRAY_STACK_H
 #define COLLECTIONS_ARRAY_STACK_H
 
@@ -117,3 +122,4 @@ void ArrayStack_reverse(struct ArrayStack *array_stack) {
 }
 
 #endif //COLLECTIONS_ARRAY_STACK_H
+```
