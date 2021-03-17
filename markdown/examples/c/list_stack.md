@@ -1,3 +1,8 @@
+# List Based Stack (C Implementation)
+
+# Source Code
+
+```c
 #ifndef COLLECTIONS_LIST_STACK_H
 #define COLLECTIONS_LIST_STACK_H
 
@@ -77,3 +82,4 @@ void ListStack_reverse(struct ListStack *list_stack) {
 }
 
 #endif //COLLECTIONS_LIST_STACK_H
+```

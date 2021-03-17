@@ -1,27 +1,61 @@
+# Simple Linked List (C Implementation)
+
+# Source Code
+
+```c
 #pragma once
-#ifndef COLLECTIONS_DOUBLY_LINKED_LIST
-#define COLLECTIONS_DOUBLY_LINKED_LIST
+#ifndef COLLECTIONS_SIMPLE_LINKED_LIST
+#define COLLECTIONS_SIMPLE_LINKED_LIST
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "list_node.h"
 
-typedef struct DoublyLinkedList {
+typedef struct SimpleLinkedList {
     unsigned long long int length;
     struct ListNode *start;
     struct ListNode *end;
-} DoublyLinkedList;
+} SimpleLinkedList;
 
-struct DoublyLinkedList *DoublyLinkedList_new() {
-    struct DoublyLinkedList *list = malloc(sizeof(struct DoublyLinkedList));
+struct SimpleLinkedList *SimpleLinkedList_new();
+
+void **SimpleLinkedList_to_array(struct SimpleLinkedList *list);
+
+unsigned long long int SimpleLinkedList_find(struct SimpleLinkedList *list, is_equal_condition condition);
+
+bool SimpleLinkedList_contains(struct SimpleLinkedList *list, is_equal_condition condition);
+
+void SimpleLinkedList_clear(struct SimpleLinkedList *list);
+
+bool SimpleLinkedList_remove_by_index(struct SimpleLinkedList *list, unsigned long long int index, bool delete_object);
+
+bool SimpleLinkedList_insert(struct SimpleLinkedList *list, unsigned long long int index, void *value, size_t size);
+
+bool SimpleLinkedList_insert_end(struct SimpleLinkedList *list, void *value, size_t size);
+
+int SimpleLinkedList_insert_start(struct SimpleLinkedList *list, void *value, size_t size);
+
+bool SimpleLinkedList_set(struct SimpleLinkedList *list, unsigned long long int index, void *value, size_t size,
+                          bool delete_old);
+
+bool SimpleLinkedList_append(struct SimpleLinkedList *list, void *value, size_t size);
+
+struct ListNode *SimpleLinkedList_get(struct SimpleLinkedList *list, unsigned long long int index);
+
+struct SimpleLinkedList *
+SimpleLinkedList_sub_list(struct SimpleLinkedList *list, unsigned long long int start, unsigned long long int end);
+
+
+struct SimpleLinkedList *SimpleLinkedList_new() {
+    struct SimpleLinkedList *list = malloc(sizeof(struct SimpleLinkedList));
     list->length = 0;
     list->start = NULL;
     list->end = NULL;
     return list;
 }
 
-void **DoublyLinkedList_to_array(struct DoublyLinkedList *list) {
+void **SimpleLinkedList_to_array(struct SimpleLinkedList *list) {
     if (list == NULL) {
         return NULL;
     }
@@ -37,7 +71,7 @@ void **DoublyLinkedList_to_array(struct DoublyLinkedList *list) {
     return array;
 }
 
-unsigned long long int DoublyLinkedList_find(struct DoublyLinkedList *list, is_equal_condition condition) {
+unsigned long long int SimpleLinkedList_find(struct SimpleLinkedList *list, is_equal_condition condition) {
     if (list == NULL) {
         return SIZE_MAX;
     }
@@ -54,20 +88,20 @@ unsigned long long int DoublyLinkedList_find(struct DoublyLinkedList *list, is_e
     return SIZE_MAX;
 }
 
-bool DoublyLinkedList_contains(struct DoublyLinkedList *list, is_equal_condition condition) {
-    if (DoublyLinkedList_find(list, condition) != SIZE_MAX) {
+bool SimpleLinkedList_contains(struct SimpleLinkedList *list, is_equal_condition condition) {
+    if (SimpleLinkedList_find(list, condition) != SIZE_MAX) {
         return TRUE;
     }
     return FALSE;
 }
 
-void DoublyLinkedList_clear(struct DoublyLinkedList *list) {
+void SimpleLinkedList_clear(struct SimpleLinkedList *list) {
     list->length = 0;
     list->start = NULL;
     list->end = NULL;
 }
 
-bool DoublyLinkedList_remove_by_index(struct DoublyLinkedList *list, unsigned long long int index, bool delete_object) {
+bool SimpleLinkedList_remove_by_index(struct SimpleLinkedList *list, unsigned long long int index, bool delete_object) {
     if (list == NULL) {
         return FALSE;
     }
@@ -86,7 +120,6 @@ bool DoublyLinkedList_remove_by_index(struct DoublyLinkedList *list, unsigned lo
             list->end = NULL;
         } else {
             struct ListNode *next = list->start->next;
-            next->before = NULL;
             if (delete_object == TRUE && current->copied == TRUE) {
                 free(list->start->value);
             }
@@ -98,7 +131,7 @@ bool DoublyLinkedList_remove_by_index(struct DoublyLinkedList *list, unsigned lo
         }
     } else if (index == list->length - 1) {
         current = list->end;
-        struct ListNode *before = list->end->before;
+        struct ListNode *before = SimpleLinkedList_get(list, index - 1);
         before->next = NULL;
         if (delete_object == TRUE && current->copied == TRUE) {
             free(list->end->value);
@@ -119,15 +152,15 @@ bool DoublyLinkedList_remove_by_index(struct DoublyLinkedList *list, unsigned lo
         if (delete_object == TRUE && current->copied == TRUE) {
             free(current->value);
         }
-        current->next->before = current->before;
-        current->before->next = current->next;
+        struct ListNode *before = SimpleLinkedList_get(list, index - 1);
+        before->next = current->next;
         free(current);
     }
     list->length--;
     return TRUE;
 }
 
-bool DoublyLinkedList_insert(struct DoublyLinkedList *list, unsigned long long int index, void *value, size_t size) {
+bool SimpleLinkedList_insert(struct SimpleLinkedList *list, unsigned long long int index, void *value, size_t size) {
     if (list == NULL) {
         return FALSE;
     }
@@ -148,45 +181,35 @@ bool DoublyLinkedList_insert(struct DoublyLinkedList *list, unsigned long long i
     new_node->value_size = size;
     if (index == 0) {
         struct ListNode *old_start = list->start;
-        old_start->before = new_node;
         new_node->next = old_start;
-        new_node->before = NULL;
         list->start = new_node;
     } else if (index == (list->length - 1)) {
         struct ListNode *end = list->end;
-        new_node->before = end->before;
         new_node->next = end;
-        end->before->next = new_node;
-        end->before = new_node;
+        struct ListNode *before_end = SimpleLinkedList_get(list, list->length - 2);
+        before_end->next = new_node;
     } else {
-        struct ListNode *current = list->start;
-        for (unsigned long long int list_index = 0; list_index != list->length; list_index++) {
-            if (list_index == index) {
-                break;
-            }
-            current = current->next;
-        }
-        current->before->next = new_node;
+        struct ListNode *current = SimpleLinkedList_get(list, index);
+        struct ListNode *before = SimpleLinkedList_get(list, index - 1);
+        before->next = new_node;
         new_node->next = current;
-        new_node->before = current->before;
-        current->before = new_node;
     }
     list->length++;
     return TRUE;
 }
 
 /*
- * Different from DoublyLinkedList_append since this will DoublyLinkedList_insert just before the end
+ * Different from SimpleLinkedList_append since this will SimpleLinkedList_insert just before the end
  */
-bool DoublyLinkedList_insert_end(struct DoublyLinkedList *list, void *value, size_t size) {
-    return DoublyLinkedList_insert(list, list->length - 1, value, size);
+bool SimpleLinkedList_insert_end(struct SimpleLinkedList *list, void *value, size_t size) {
+    return SimpleLinkedList_insert(list, list->length - 1, value, size);
 }
 
-int DoublyLinkedList_insert_start(struct DoublyLinkedList *list, void *value, size_t size) {
-    return DoublyLinkedList_insert(list, 0, value, size);
+int SimpleLinkedList_insert_start(struct SimpleLinkedList *list, void *value, size_t size) {
+    return SimpleLinkedList_insert(list, 0, value, size);
 }
 
-bool DoublyLinkedList_set(struct DoublyLinkedList *list, unsigned long long int index, void *value, size_t size,
+bool SimpleLinkedList_set(struct SimpleLinkedList *list, unsigned long long int index, void *value, size_t size,
                           bool delete_old) {
     if (list == NULL) {
         return FALSE;
@@ -217,7 +240,7 @@ bool DoublyLinkedList_set(struct DoublyLinkedList *list, unsigned long long int 
     return FALSE;
 }
 
-bool DoublyLinkedList_append(struct DoublyLinkedList *list, void *value, size_t size) {
+bool SimpleLinkedList_append(struct SimpleLinkedList *list, void *value, size_t size) {
     if (list == NULL) {
         return FALSE;
     }
@@ -234,7 +257,6 @@ bool DoublyLinkedList_append(struct DoublyLinkedList *list, void *value, size_t 
             list->start->value = value;
         }
         list->start->value_size = size;
-        list->start->before = NULL;
         list->start->next = NULL;
         list->length++;
         list->end = list->start;
@@ -250,7 +272,6 @@ bool DoublyLinkedList_append(struct DoublyLinkedList *list, void *value, size_t 
         new_node->value = value;
     }
     new_node->value_size = size;
-    new_node->before = old_last_node;
     new_node->next = NULL;
     old_last_node->next = new_node;
     list->end = new_node;
@@ -258,7 +279,7 @@ bool DoublyLinkedList_append(struct DoublyLinkedList *list, void *value, size_t 
     return TRUE;
 }
 
-struct ListNode *DoublyLinkedList_get(struct DoublyLinkedList *list, unsigned long long int index) {
+struct ListNode *SimpleLinkedList_get(struct SimpleLinkedList *list, unsigned long long int index) {
     if (list == NULL) {
         return NULL;
     }
@@ -278,26 +299,26 @@ struct ListNode *DoublyLinkedList_get(struct DoublyLinkedList *list, unsigned lo
     return current;
 }
 
-struct DoublyLinkedList *
-DoublyLinkedList_sub_list(struct DoublyLinkedList *list, unsigned long long int start, unsigned long long int end) {
+struct SimpleLinkedList *
+SimpleLinkedList_sub_list(struct SimpleLinkedList *list, unsigned long long int start, unsigned long long int end) {
     if (list == NULL) {
         return NULL;
     }
     if (list->length == 0 || start >= list->length || end >= list->length || start >= end) {
         return NULL;
     }
-    struct DoublyLinkedList *result = DoublyLinkedList_new();
+    struct SimpleLinkedList *result = SimpleLinkedList_new();
     bool append_it = FALSE;
     struct ListNode *current = list->start;
     for (unsigned long long int list_index = 0; list_index < list->length; list_index++) {
         if (list_index == start) {
-            DoublyLinkedList_append(result, current->value, current->value_size);
+            SimpleLinkedList_append(result, current->value, current->value_size);
             append_it = TRUE;
         } else if (list_index == end) {
-            DoublyLinkedList_append(result, current->value, current->value_size);
+            SimpleLinkedList_append(result, current->value, current->value_size);
             break;
         } else if (append_it == TRUE) {
-            DoublyLinkedList_append(result, current->value, current->value_size);
+            SimpleLinkedList_append(result, current->value, current->value_size);
         }
         current = current->next;
     }
@@ -305,3 +326,4 @@ DoublyLinkedList_sub_list(struct DoublyLinkedList *list, unsigned long long int 
 }
 
 #endif
+```

@@ -50,23 +50,6 @@ struct SimpleLinkedList *SimpleLinkedList_new() {
     return list;
 }
 
-/*
- * SimpleLinkedList_get - Done
- * append_cpy - Done
- * append_nocpy - Done
- * SimpleLinkedList_set - Done
- * SimpleLinkedList_insert - Done
- * SimpleLinkedList_sub_list - Done
- * SimpleLinkedList_insert_end - Done
- * SimpleLinkedList_insert_start - Done
- * remove - Done
- * SimpleLinkedList_clear - Done
- * SimpleLinkedList_find - Done
- * SimpleLinkedList_contains - Done
- * SimpleLinkedList_to_array - Done
- * sort
- */
-
 void **SimpleLinkedList_to_array(struct SimpleLinkedList *list) {
     if (list == NULL) {
         return NULL;
