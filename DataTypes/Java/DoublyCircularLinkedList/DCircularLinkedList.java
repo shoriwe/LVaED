@@ -1,8 +1,3 @@
-# Circular Double Linked List (Java Implementation)
-
-# Source Code
-
-```java
 import java.util.Iterator;
 
 
@@ -553,4 +548,3 @@ public class DCircularLinkedList {
         return null;
     }
 }
-```

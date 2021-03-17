@@ -1,8 +1,3 @@
-# Array Based Stack (Java Implementation)
-
-# Source Code
-
-```java
 
 import java.util.Arrays;
 
@@ -90,4 +85,3 @@ public class ArrayStack {
                 + '}';
     }
 }
-```

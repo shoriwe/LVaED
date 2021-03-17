@@ -1,58 +1,44 @@
-# Circular Simple Linked List (Java Implementation)
-
-# Source Code
-
-```java
 import static java.lang.System.out;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Spliterator;
+import java.util.function.Consumer;
 
-public class CircularSimpleList {
+
+public class Lista {
 
     private ListNode inode;
-    private ListNode head = null;
-    private ListNode tail = head;
-    int size = 0;
-    ListNode nextNode;
+    private int size = 0;
 
-    public CircularSimpleList() {
+    public ListNode head;
+    public ListNode tail;
+
+//inicializar la lista 
+    public Lista() {
         clear();
     }
 
+//agregar objeto
+    public Lista(Object object) {
+        add(object);
+    }
+
+//saber si la lista esta vacia
     public boolean isEmpty() {
         return head == null;
     }
 
+//tener el tamaño de la lista
     public int getSize() {
         return size;
     }
 
+//limpiar la lista
     public void clear() {
         head = null;
         tail = null;
         size = 0;
-    }
-
-    public void add(Object object) {
-        ListNode newNode = new ListNode(object);
-
-        if (head == null) {
-            head = newNode;
-        } else {
-            tail.next = newNode;
-        }
-
-        tail = newNode;
-        tail.next = head;
-        size++;
-    }
-
-//agregar objeto
-    public CircularSimpleList(Object object) {
-        add(object);
-        size++;
     }
 
 //obtener la cabeza
@@ -79,6 +65,10 @@ public class CircularSimpleList {
         }
 
     }
+    
+    
+    
+    
 
 //Obtener la cola
     public Object getTail() {
@@ -97,10 +87,15 @@ public class CircularSimpleList {
         return null;
     }
 
+//añadir un objeto a la lista
+    public boolean add(Object object) {
+        return insertTail(object);
+    }
+
 //Insertar un objeto despues del  nodo indicado
     public boolean insert(ListNode node, Object object) {
         try {
-            if (node.next == head) {
+            if (node.next == null) {
                 add(object);
             } else {
                 ListNode newNode = new ListNode(object);
@@ -121,7 +116,6 @@ public class CircularSimpleList {
                 ListNode node = this.search(ob);
                 if (node != null) {
                     return insert(node, object);
-               
                 } else {
                     return false;
                 }
@@ -158,7 +152,6 @@ public class CircularSimpleList {
             } else {
                 tail.next = new ListNode(object);
                 tail = tail.next;
-                tail.next = head;
             }
             this.size++;
             return true;
@@ -267,7 +260,7 @@ public class CircularSimpleList {
 //imprime la lista
     public void printList() {
         ListNode n = head;
-        while (n != head) {
+        while (n != null) {
             System.out.print(n.getObject() + " ");
             n = n.next;
         }
@@ -321,7 +314,7 @@ public class CircularSimpleList {
 
         return list;
     }
-
+    
 //organiza la lista cuando esta son numeros
     public List sortList() {
 
@@ -338,7 +331,7 @@ public class CircularSimpleList {
 
     }
 
-    int longitud() {
+   int longitud() {
         ListNode actual = this.head;
         int lon = 0;
         while (actual != null) {
@@ -356,7 +349,7 @@ public class CircularSimpleList {
 
             while (actual.next != null) {
 
-                if (actual.next.next == null) {
+                if (actual.next.next== null) {
                     System.out.print(actual.next.getObject() + " ");
                     actual.next = null;
                 } else {
@@ -369,9 +362,12 @@ public class CircularSimpleList {
         System.out.print(head.getObject());
     }
 
+
+   
+
     //recorrer de forma recursiva la lista
     public void rec(ListNode node) {
-        if (node.next != head) {
+        if (node.next != null) {
             rec(node.next);
             // <- ;) ->
         }
@@ -383,4 +379,3 @@ public class CircularSimpleList {
     }
 
 }
-```

@@ -1,8 +1,3 @@
-# Circular Simple Linked List (Java Implementation)
-
-# Source Code
-
-```java
 import static java.lang.System.out;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -383,4 +378,3 @@ public class CircularSimpleList {
     }
 
 }
-```
