@@ -93,7 +93,8 @@ def load_examples(app: flask.Flask):
         "array_stack": render_article("markdown/examples/c/array_stack.md"),
         "list_stack": render_article("markdown/examples/c/list_stack.md"),
         "array_queue": render_article("markdown/examples/c/array_queue.md"),
-        "list_queue": render_article("markdown/examples/c/list_queue.md")
+        "list_queue": render_article("markdown/examples/c/list_queue.md"),
+        "priority_queue": render_article("markdown/examples/c/priority_queue.md")
 
     }
     app.config["examples"]["java"] = {
@@ -104,7 +105,8 @@ def load_examples(app: flask.Flask):
         "array_stack": render_article("markdown/examples/java/array_stack.md"),
         "list_stack": render_article("markdown/examples/java/list_stack.md"),
         "array_queue": render_article("markdown/examples/java/array_queue.md"),
-        "list_queue": render_article("markdown/examples/java/list_queue.md")
+        "list_queue": render_article("markdown/examples/java/list_queue.md"),
+        "priority_queue": render_article("markdown/examples/java/priority_queue.md")
     }
     app.config["examples"]["python"] = {
         "simple_list": render_article("markdown/examples/python/simple_list.md"),
@@ -114,7 +116,8 @@ def load_examples(app: flask.Flask):
         "array_stack": render_article("markdown/examples/python/array_stack.md"),
         "list_stack": render_article("markdown/examples/python/list_stack.md"),
         "array_queue": render_article("markdown/examples/python/array_queue.md"),
-        "list_queue": render_article("markdown/examples/python/list_queue.md")
+        "list_queue": render_article("markdown/examples/python/list_queue.md"),
+        "priority_queue": render_article("markdown/examples/python/priority_queue.md")
     }
 
 
