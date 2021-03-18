@@ -1,6 +1,6 @@
 # LVaED
 
-![](https://github.com/shoriwe/LVaED/raw/README/static/img/logo.PNG)
+![](https://github.com/shoriwe/LVaED/raw/main/static/img/logo.PNG)
 
 ## Powered with
 
