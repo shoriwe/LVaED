@@ -26,6 +26,8 @@ PENDING
 
 ## Priority Queue
 
+![](/static/img/DataTypes/PriorityQueue.png)
+
 This kind of queue differs for the first one mentioned in a peculiar way, it auto sort its content every time an element is added (really it only add the element in its respective place), it does that based on special attribute usually called `weight` which is a numeric value and let the own queue determine were it should put the new element.
 
 Its `Dequeue` method work almost the same way in comparison with a vanilla queue, the real change is in its `Enqueue` method which decides accordingly with the mentioned `weight` element where it should put the new element.
