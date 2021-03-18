@@ -8,7 +8,16 @@
 #include "../Lists/doubly_linked_list.h"
 #include "../primitives.h"
 
-
+/*
+ * clear() - Done
+ * isEmpty() - Done
+ * extract() -> dequeue() - Done
+ * insert() -> enqueue() - Done
+ * size() -> length - Done
+ * search() - Done
+ * sort()
+ * reverse() -> reverse - Done
+ */
 typedef struct ListQueue {
     DoublyLinkedList *content;
     bool reversed;

@@ -17,7 +17,16 @@ typedef struct QueueElement {
 
 typedef bool (*is_equal_condition)(struct QueueElement *node);
 
-
+/*
+ * clear() - Done
+ * isEmpty() - Done
+ * extract() -> dequeue() - Done
+ * insert() -> enqueue() - Done
+ * size() -> length - Done
+ * search() - Done
+ * sort()
+ * reverse() -> reverse - Done
+ */
 typedef struct ArrayQueue {
     unsigned long long int length;
     unsigned long long int current_length;
