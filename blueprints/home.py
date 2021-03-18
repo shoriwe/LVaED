@@ -5,11 +5,6 @@ __all__ = ["home_blueprint"]
 home_blueprint = flask.Blueprint("Home", "home")
 
 
-@home_blueprint.route("/")
-def home_empty():
-    return flask.redirect("/home")
-
-
 @home_blueprint.route("/home")
 def home():
     return flask.render_template("basic/page.html",
