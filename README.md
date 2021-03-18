@@ -20,23 +20,33 @@ A preview of the website
 
 ### Homepage
 
-![](https://github.com/shoriwe/LVaED/raw/README/resources/HomePage.PNG)
+<table><tr><td>
+    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/HomePage.PNG" />
+</td></tr></table>
 
 ### Presentation
 
-![](https://github.com/shoriwe/LVaED/raw/README/resources/Presentation.PNG)
+<table><tr><td>
+    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/Presentation.PNG"/>
+</td></tr></table>
 
 #### Article
 
-![](https://github.com/shoriwe/LVaED/raw/README/resources/Article.PNG)
+<table><tr><td>
+    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/Article.PNG"/>
+</td></tr></table>
 
 ### Examples
 
-![](https://github.com/shoriwe/LVaED/raw/README/resources/Examples.PNG)
+<table><tr><td>
+    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/Examples.PNG"/>
+</td></tr></table>
 
 #### Code Preview
 
-![](https://github.com/shoriwe/LVaED/raw/README/resources/CodePreview.PNG)
+<table><tr><td>
+    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/CodePreview.PNG"/>
+</td></tr></table>
 
 ### Transformation
 
