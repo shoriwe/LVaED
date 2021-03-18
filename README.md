@@ -21,31 +21,31 @@ A preview of the website
 ### Homepage
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/HomePage.PNG" />
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/HomePage.PNG" />
 </td></tr></table>
 
 ### Presentation
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/Presentation.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Presentation.PNG"/>
 </td></tr></table>
 
 #### Article
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/Article.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Article.PNG"/>
 </td></tr></table>
 
 ### Examples
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/Examples.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Examples.PNG"/>
 </td></tr></table>
 
 #### Code Preview
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/README/resources/CodePreview.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/CodePreview.PNG"/>
 </td></tr></table>
 
 ### Transformation
