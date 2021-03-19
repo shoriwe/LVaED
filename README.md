@@ -50,9 +50,33 @@ A preview of the website
 
 ### Transformation
 
-```
-Not implemented yet
-```
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Transformations.PNG"/>
+        </td>
+    </tr>
+</table>
+
+#### Source Code to Network Graph
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Transformations-Graph.PNG"/>
+        </td>
+    </tr>
+</table>
+
+#### AST-like representation and Source code View
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Transformations-Results-SourceCode.PNG"/>
+        </td>
+    </tr>
+</table>
 
 ## Installation
 
