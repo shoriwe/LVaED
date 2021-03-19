@@ -59,42 +59,42 @@
       "id": 11
     },
     {
+      "name": ".arguments",
+      "kind": "ImportFrom",
+      "id": 12
+    },
+    {
+      "name": "Arguments",
+      "kind": "ImportFromTarget",
+      "id": 13
+    },
+    {
       "name": "Queue",
       "kind": "Class",
-      "id": 12
+      "id": 14
     },
     {
       "name": "object",
       "kind": "Base",
-      "id": 13
+      "id": 15
     },
     {
       "name": "__init__",
       "kind": "Class Method",
-      "id": 14
+      "id": 16
     },
     {
       "name": "self",
       "kind": "Argument",
-      "id": 15
+      "id": 17
     },
     {
       "name": "values",
       "kind": "Argument",
-      "id": 16
-    },
-    {
-      "name": "__fill",
-      "kind": "Class Method",
-      "id": 17
-    },
-    {
-      "name": "self",
-      "kind": "Argument",
       "id": 18
     },
     {
-      "name": "empty",
+      "name": "__fill",
       "kind": "Class Method",
       "id": 19
     },
@@ -104,7 +104,7 @@
       "id": 20
     },
     {
-      "name": "get",
+      "name": "empty",
       "kind": "Class Method",
       "id": 21
     },
@@ -114,27 +114,27 @@
       "id": 22
     },
     {
-      "name": "block",
-      "kind": "Argument",
-      "id": 23
-    },
-    {
-      "name": "timeout",
-      "kind": "Argument",
-      "id": 24
-    },
-    {
-      "name": "join",
+      "name": "get",
       "kind": "Class Method",
-      "id": 25
+      "id": 23
     },
     {
       "name": "self",
       "kind": "Argument",
+      "id": 24
+    },
+    {
+      "name": "block",
+      "kind": "Argument",
+      "id": 25
+    },
+    {
+      "name": "timeout",
+      "kind": "Argument",
       "id": 26
     },
     {
-      "name": "stop",
+      "name": "join",
       "kind": "Class Method",
       "id": 27
     },
@@ -144,87 +144,87 @@
       "id": 28
     },
     {
+      "name": "stop",
+      "kind": "Class Method",
+      "id": 29
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 30
+    },
+    {
       "name": "Pool",
       "kind": "Class",
-      "id": 29
+      "id": 31
     },
     {
       "name": "object",
       "kind": "Base",
-      "id": 30
+      "id": 32
     },
     {
       "name": "__init__",
       "kind": "Class Method",
-      "id": 31
-    },
-    {
-      "name": "self",
-      "kind": "Argument",
-      "id": 32
-    },
-    {
-      "name": "function_",
-      "kind": "Argument",
       "id": 33
     },
     {
-      "name": "function_arguments",
+      "name": "self",
       "kind": "Argument",
       "id": 34
     },
     {
-      "name": "check_function",
+      "name": "function_",
       "kind": "Argument",
       "id": 35
     },
     {
-      "name": "success_function",
+      "name": "function_arguments",
       "kind": "Argument",
       "id": 36
     },
     {
-      "name": "max_processes",
+      "name": "check_function",
       "kind": "Argument",
       "id": 37
     },
     {
-      "name": "max_threads",
+      "name": "success_function",
       "kind": "Argument",
       "id": 38
     },
     {
-      "name": "optimize_workers",
+      "name": "max_processes",
       "kind": "Argument",
       "id": 39
     },
     {
-      "name": "speed_reference",
+      "name": "max_threads",
       "kind": "Argument",
       "id": 40
     },
     {
-      "name": "processes_as_threads",
+      "name": "optimize_workers",
       "kind": "Argument",
       "id": 41
     },
     {
-      "name": "unsafe_workers",
+      "name": "speed_reference",
       "kind": "Argument",
       "id": 42
     },
     {
-      "name": "_sync_success",
-      "kind": "Class Method",
+      "name": "processes_as_threads",
+      "kind": "Argument",
       "id": 43
     },
     {
-      "name": "self",
+      "name": "unsafe_workers",
       "kind": "Argument",
       "id": 44
     },
     {
-      "name": "_get",
+      "name": "_sync_success",
       "kind": "Class Method",
       "id": 45
     },
@@ -234,7 +234,7 @@
       "id": 46
     },
     {
-      "name": "_process_worker",
+      "name": "_get",
       "kind": "Class Method",
       "id": 47
     },
@@ -244,7 +244,7 @@
       "id": 48
     },
     {
-      "name": "run",
+      "name": "_process_worker",
       "kind": "Class Method",
       "id": 49
     },
@@ -252,6 +252,16 @@
       "name": "self",
       "kind": "Argument",
       "id": 50
+    },
+    {
+      "name": "run",
+      "kind": "Class Method",
+      "id": 51
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 52
     }
   ],
   "links": [
@@ -306,57 +316,62 @@
       "target": 11
     },
     {
-      "label": "Defines",
+      "label": "From",
       "source": 1,
       "target": 12
     },
     {
       "label": "Defines",
       "source": 1,
-      "target": 29
+      "target": 14
     },
     {
-      "label": "Implements",
+      "label": "Defines",
+      "source": 1,
+      "target": 31
+    },
+    {
+      "label": "Import",
       "source": 12,
       "target": 13
     },
     {
-      "source": 12,
-      "target": 14
-    },
-    {
-      "source": 12,
-      "target": 17
-    },
-    {
-      "source": 12,
-      "target": 19
-    },
-    {
-      "source": 12,
-      "target": 21
-    },
-    {
-      "source": 12,
-      "target": 25
-    },
-    {
-      "source": 12,
-      "target": 27
-    },
-    {
-      "label": "Has",
+      "label": "Implements",
       "source": 14,
       "target": 15
     },
     {
-      "label": "Has",
       "source": 14,
       "target": 16
     },
     {
+      "source": 14,
+      "target": 19
+    },
+    {
+      "source": 14,
+      "target": 21
+    },
+    {
+      "source": 14,
+      "target": 23
+    },
+    {
+      "source": 14,
+      "target": 27
+    },
+    {
+      "source": 14,
+      "target": 29
+    },
+    {
       "label": "Has",
-      "source": 17,
+      "source": 16,
+      "target": 17
+    },
+    {
+      "label": "Has",
+      "source": 16,
       "target": 18
     },
     {
@@ -371,17 +386,17 @@
     },
     {
       "label": "Has",
-      "source": 21,
-      "target": 23
-    },
-    {
-      "label": "Has",
-      "source": 21,
+      "source": 23,
       "target": 24
     },
     {
       "label": "Has",
-      "source": 25,
+      "source": 23,
+      "target": 25
+    },
+    {
+      "label": "Has",
+      "source": 23,
       "target": 26
     },
     {
@@ -390,88 +405,88 @@
       "target": 28
     },
     {
-      "label": "Implements",
+      "label": "Has",
       "source": 29,
       "target": 30
     },
     {
-      "source": 29,
-      "target": 31
-    },
-    {
-      "source": 29,
-      "target": 43
-    },
-    {
-      "source": 29,
-      "target": 45
-    },
-    {
-      "source": 29,
-      "target": 47
-    },
-    {
-      "source": 29,
-      "target": 49
-    },
-    {
-      "label": "Has",
+      "label": "Implements",
       "source": 31,
       "target": 32
     },
     {
-      "label": "Has",
       "source": 31,
       "target": 33
     },
     {
-      "label": "Has",
       "source": 31,
+      "target": 45
+    },
+    {
+      "source": 31,
+      "target": 47
+    },
+    {
+      "source": 31,
+      "target": 49
+    },
+    {
+      "source": 31,
+      "target": 51
+    },
+    {
+      "label": "Has",
+      "source": 33,
       "target": 34
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 35
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 36
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 37
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 38
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 39
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 40
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 41
     },
     {
       "label": "Has",
-      "source": 31,
+      "source": 33,
       "target": 42
     },
     {
       "label": "Has",
-      "source": 43,
+      "source": 33,
+      "target": 43
+    },
+    {
+      "label": "Has",
+      "source": 33,
       "target": 44
     },
     {
@@ -488,6 +503,11 @@
       "label": "Has",
       "source": 49,
       "target": 50
+    },
+    {
+      "label": "Has",
+      "source": 51,
+      "target": 52
     }
   ]
 }
