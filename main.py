@@ -9,6 +9,7 @@ import markdown
 import blueprints.example
 import blueprints.home
 import blueprints.presentation
+import blueprints.transformations
 
 
 class Zipper(object):
@@ -128,6 +129,7 @@ def setup() -> flask.Flask:
     app.register_blueprint(blueprints.home.home_blueprint)
     app.register_blueprint(blueprints.presentation.presentation_blueprint)
     app.register_blueprint(blueprints.example.example_blueprint)
+    app.register_blueprint(blueprints.transformations.transformations_blueprint)
     load_articles(app)
     load_libraries(app)
     load_examples(app)

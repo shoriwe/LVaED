@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="{{ url_for('static',filename='css/transformations/file-upload.css') }}" rel="stylesheet"
+          type="text/css">
+</head>
+<body>
+<div class="master-container">
+    <div class="file-upload-container">
+        <h1 class="transformation-title">Python code Analyser</h1>
+        <form enctype=multipart/form-data method=post>
+            <input class="file-container" name="python-code" type="file">
+            <input class="upload-button" type="submit" value="Upload">
+        </form>
+    </div>
+</div>
+</body>
+</html>
