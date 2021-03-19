@@ -1,0 +1,493 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "name": "sample-1.py",
+      "kind": "Script",
+      "id": 1
+    },
+    {
+      "name": "asyncio",
+      "kind": "Module",
+      "id": 2
+    },
+    {
+      "name": "collections",
+      "kind": "Module",
+      "id": 3
+    },
+    {
+      "name": "concurrent.futures",
+      "kind": "Module",
+      "id": 4
+    },
+    {
+      "name": "multiprocessing",
+      "kind": "Module",
+      "id": 5
+    },
+    {
+      "name": "multiprocessing.pool",
+      "kind": "Module",
+      "id": 6
+    },
+    {
+      "name": "queue",
+      "kind": "Module",
+      "id": 7
+    },
+    {
+      "name": "sys",
+      "kind": "Module",
+      "id": 8
+    },
+    {
+      "name": "threading",
+      "kind": "Module",
+      "id": 9
+    },
+    {
+      "name": "time",
+      "kind": "Module",
+      "id": 10
+    },
+    {
+      "name": "types",
+      "kind": "Module",
+      "id": 11
+    },
+    {
+      "name": "Queue",
+      "kind": "Class",
+      "id": 12
+    },
+    {
+      "name": "object",
+      "kind": "Base",
+      "id": 13
+    },
+    {
+      "name": "__init__",
+      "kind": "Class Method",
+      "id": 14
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 15
+    },
+    {
+      "name": "values",
+      "kind": "Argument",
+      "id": 16
+    },
+    {
+      "name": "__fill",
+      "kind": "Class Method",
+      "id": 17
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 18
+    },
+    {
+      "name": "empty",
+      "kind": "Class Method",
+      "id": 19
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 20
+    },
+    {
+      "name": "get",
+      "kind": "Class Method",
+      "id": 21
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 22
+    },
+    {
+      "name": "block",
+      "kind": "Argument",
+      "id": 23
+    },
+    {
+      "name": "timeout",
+      "kind": "Argument",
+      "id": 24
+    },
+    {
+      "name": "join",
+      "kind": "Class Method",
+      "id": 25
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 26
+    },
+    {
+      "name": "stop",
+      "kind": "Class Method",
+      "id": 27
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 28
+    },
+    {
+      "name": "Pool",
+      "kind": "Class",
+      "id": 29
+    },
+    {
+      "name": "object",
+      "kind": "Base",
+      "id": 30
+    },
+    {
+      "name": "__init__",
+      "kind": "Class Method",
+      "id": 31
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 32
+    },
+    {
+      "name": "function_",
+      "kind": "Argument",
+      "id": 33
+    },
+    {
+      "name": "function_arguments",
+      "kind": "Argument",
+      "id": 34
+    },
+    {
+      "name": "check_function",
+      "kind": "Argument",
+      "id": 35
+    },
+    {
+      "name": "success_function",
+      "kind": "Argument",
+      "id": 36
+    },
+    {
+      "name": "max_processes",
+      "kind": "Argument",
+      "id": 37
+    },
+    {
+      "name": "max_threads",
+      "kind": "Argument",
+      "id": 38
+    },
+    {
+      "name": "optimize_workers",
+      "kind": "Argument",
+      "id": 39
+    },
+    {
+      "name": "speed_reference",
+      "kind": "Argument",
+      "id": 40
+    },
+    {
+      "name": "processes_as_threads",
+      "kind": "Argument",
+      "id": 41
+    },
+    {
+      "name": "unsafe_workers",
+      "kind": "Argument",
+      "id": 42
+    },
+    {
+      "name": "_sync_success",
+      "kind": "Class Method",
+      "id": 43
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 44
+    },
+    {
+      "name": "_get",
+      "kind": "Class Method",
+      "id": 45
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 46
+    },
+    {
+      "name": "_process_worker",
+      "kind": "Class Method",
+      "id": 47
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 48
+    },
+    {
+      "name": "run",
+      "kind": "Class Method",
+      "id": 49
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 50
+    }
+  ],
+  "links": [
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 2
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 3
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 4
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 5
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 6
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 7
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 8
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 9
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 10
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 11
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 12
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 29
+    },
+    {
+      "label": "Implements",
+      "source": 12,
+      "target": 13
+    },
+    {
+      "source": 12,
+      "target": 14
+    },
+    {
+      "source": 12,
+      "target": 17
+    },
+    {
+      "source": 12,
+      "target": 19
+    },
+    {
+      "source": 12,
+      "target": 21
+    },
+    {
+      "source": 12,
+      "target": 25
+    },
+    {
+      "source": 12,
+      "target": 27
+    },
+    {
+      "label": "Has",
+      "source": 14,
+      "target": 15
+    },
+    {
+      "label": "Has",
+      "source": 14,
+      "target": 16
+    },
+    {
+      "label": "Has",
+      "source": 17,
+      "target": 18
+    },
+    {
+      "label": "Has",
+      "source": 19,
+      "target": 20
+    },
+    {
+      "label": "Has",
+      "source": 21,
+      "target": 22
+    },
+    {
+      "label": "Has",
+      "source": 21,
+      "target": 23
+    },
+    {
+      "label": "Has",
+      "source": 21,
+      "target": 24
+    },
+    {
+      "label": "Has",
+      "source": 25,
+      "target": 26
+    },
+    {
+      "label": "Has",
+      "source": 27,
+      "target": 28
+    },
+    {
+      "label": "Implements",
+      "source": 29,
+      "target": 30
+    },
+    {
+      "source": 29,
+      "target": 31
+    },
+    {
+      "source": 29,
+      "target": 43
+    },
+    {
+      "source": 29,
+      "target": 45
+    },
+    {
+      "source": 29,
+      "target": 47
+    },
+    {
+      "source": 29,
+      "target": 49
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 32
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 33
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 34
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 35
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 36
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 37
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 38
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 39
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 40
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 41
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 42
+    },
+    {
+      "label": "Has",
+      "source": 43,
+      "target": 44
+    },
+    {
+      "label": "Has",
+      "source": 45,
+      "target": 46
+    },
+    {
+      "label": "Has",
+      "source": 47,
+      "target": 48
+    },
+    {
+      "label": "Has",
+      "source": 49,
+      "target": 50
+    }
+  ]
+}
