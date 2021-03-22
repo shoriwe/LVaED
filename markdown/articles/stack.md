@@ -2,7 +2,7 @@
 
 Stacks are the result of approaching a `LIFO` (Last in, First out) ordering with list node connection behavior. This means that element inside the stack are connected like a list but are added and extracted approaching `LIFO`.
 
-[![](/static/img/DataTypes/lifo_stack.png)](https://commons.wikimedia.org/wiki/File:Lifo_stack.png)
+[![](/static/vendor/img/wikipedia/lifo_stack.png)](https://commons.wikimedia.org/wiki/File:Lifo_stack.png)
 
 Based on that, the to methods that a stack should have to be called that way are `pop` which remove and element from the stack and returns it, and `push` which adds a new element to the stack.
 
@@ -60,6 +60,6 @@ public Object peek() {
 
 Example of an array based stack, of four elements. It will only receive four elements, if it reach it's max length, incoming values were not be added.
 
-[![](/static/img/DataTypes/Stack_(data_structure)_LIFO.svg)](https://commons.wikimedia.org/wiki/File:Stack_(data_structure)_LIFO.svg)
+[![](/static/vendor/img/wikipedia/Stack_(data_structure)_LIFO.svg)](https://commons.wikimedia.org/wiki/File:Stack_(data_structure)_LIFO.svg)
 
 The mayor difference between an array based stack and one implemented using lists is that the first one is usually implemented with a static size, this means that it will only accept a specific number of element, the other one, will allow the user to add elements until memory  is full.
