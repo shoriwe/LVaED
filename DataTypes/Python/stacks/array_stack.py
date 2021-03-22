@@ -1,8 +1,3 @@
-# Array Based Stack (Python Implementation)
-
-# Source Code
-
-```python
 class ArrayStack(object):
     def __init__(self, length: int):
         self.max_length = length
@@ -53,4 +48,3 @@ class ArrayStack(object):
 
     def search(self, obj: object) -> bool:
         return obj in self.content
-```
