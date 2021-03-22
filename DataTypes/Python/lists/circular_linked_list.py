@@ -1,8 +1,3 @@
-# Circular Simple Linked List (Python Implementation)
-
-# Source Code
-
-```python
 import double_linked_list
 from lists import list_node
 
@@ -53,4 +48,3 @@ class CircularLinkedList(object):
 
     def __getitem__(self, index):
         return self.content.__getitem__(index)
-```

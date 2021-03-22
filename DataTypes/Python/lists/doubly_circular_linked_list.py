@@ -1,13 +1,8 @@
-# Circular Simple Linked List (Python Implementation)
-
-# Source Code
-
-```python
 import double_linked_list
 from lists import list_node
 
 
-class CircularLinkedList(object):
+class DoublyCircularLinkedList(object):
     def __init__(self):
         self.length = 0
         self.content = double_linked_list.DoublyLinkedList()
@@ -15,6 +10,8 @@ class CircularLinkedList(object):
     def update(self):
         if self.content.start is not None:
             self.content.start.before = self.content.end
+        if self.content.end is not None:
+            self.content.end.next = self.content.start
         self.length = self.content.length
 
     def clear(self):
@@ -42,6 +39,12 @@ class CircularLinkedList(object):
     def to_list(self):
         return [node.value for node in self]
 
+    def reverse_iterator(self):
+        current = self.content.start
+        while current is not None:
+            yield current
+            current = current.before
+
     def __iter__(self):
         yield from self.content
 
@@ -53,4 +56,3 @@ class CircularLinkedList(object):
 
     def __getitem__(self, index):
         return self.content.__getitem__(index)
-```

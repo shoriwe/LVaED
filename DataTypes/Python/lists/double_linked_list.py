@@ -1,4 +1,4 @@
-import list_node
+from lists import list_node
 
 
 class DoublyLinkedList(object):
