@@ -1,8 +1,3 @@
-# List Based Stack (Python Implementation)
-
-# Source Code
-
-```python
 import lists.double_linked_list
 
 
@@ -59,4 +54,3 @@ class ListStack(object):
 
     def search(self, obj: object) -> bool:
         return obj in self.content
-```
