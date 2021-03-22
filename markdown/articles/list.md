@@ -1,6 +1,6 @@
 # Linked List
 
-[![ListExample](/static/img/DataTypes/C_language_linked_list.png)](https://commons.wikimedia.org/wiki/File:C_language_linked_list.png)
+[![ListExample](/static/vendor/img/wikipedia/C_language_linked_list.png)](https://commons.wikimedia.org/wiki/File:C_language_linked_list.png)
 
 A linked list is a special data type with the interesting behavior of not having a predefined length during it's initialization, this means that it's length will increase until memory became insufficient. The difference with a traditional array, is that elements are acceded by iterating it until we reach the target value, instead of a memory address offset pointing to it, that behavior can make lists a problem specially when they have to many elements.
 
@@ -52,13 +52,13 @@ public class ListNode {
 
 ## Simply Linked Lists
 
-[![Simple Linked List](/static/img/DataTypes/Singly-linked-list.svg)](https://commons.wikimedia.org/wiki/File:Singly-linked-list.svg)
+[![Simple Linked List](/static/vendor/img/wikipedia/Singly-linked-list.svg)](https://commons.wikimedia.org/wiki/File:Singly-linked-list.svg)
 
 The simple linked list is the base concept of the list, it handle the connection between node in only one direction, normally associating its physical orientation with the right (`next`) 
 
 Removing an element of a list is as simple as disassociating it from the nodes conected to it. This means that to remove a node, you only need to delete the relation of the node before the targeted one.
 
-[![Deleting element from a list](/static/img/DataTypes/CPT-LinkedLists-deletingnode.svg)](https://commons.wikimedia.org/wiki/File:CPT-LinkedLists-deletingnode.svg)
+[![Deleting element from a list](/static/vendor/img/wikipedia/CPT-LinkedLists-deletingnode.svg)](https://commons.wikimedia.org/wiki/File:CPT-LinkedLists-deletingnode.svg)
 
 In `Java` its append operation will be like:
 
@@ -80,11 +80,11 @@ public void Append(Object value) {
 
 Doubly Linked Lists differ from Simple ones in one small detail, every node also knows which node they have before, this means that each node make use of the `before` property to point to the node that is pointing to them
 
-[![DoublyLinkedList](/static/img/DataTypes/Doubly-linked-list.svg)](https://commons.wikimedia.org/wiki/File:Doubly-linked-list.svg)
+[![DoublyLinkedList](/static/vendor/img/wikipedia/Doubly-linked-list.svg)](https://commons.wikimedia.org/wiki/File:Doubly-linked-list.svg)
 
 ## Simple Circular Linked Lists
 
-[![CircularSimpleLinkedList](/static/img/DataTypes/Circurlar_linked_list.png)](https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png)
+[![CircularSimpleLinkedList](/static/vendor/img/wikipedia/Circurlar_linked_list.png)](https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png)
 
 The difference between circular and more traditional list is that this kind of list doesn't have an end, or at least they don't have it when we iterate over it. This means that we can still point to a virtual last `node` but this last node will have its `next`, pointing to the first value this way, when ever we request the next value we will received.
 
@@ -108,7 +108,7 @@ public void Append(Object value) {
 ```
 ## Doubly Circular Linked Lists
 
-[![CircularDoubleLinkedList](/static/img/DataTypes/DoubleCircularLinkedList.png)](https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/)
+[![CircularDoubleLinkedList](/static/vendor/img/geekforgeeks/DoubleCircularLinkedList.png)](https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/)
 
 
 Similar to the behavior of the `Simple Circular Linked List`, this kind of list have associated its end with its start and the other way around, this means that when it is iterated from the end to start, it will never stop since the `before` of the start is pointing to the `end` node

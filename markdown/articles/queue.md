@@ -1,6 +1,6 @@
 # Queue
 
-[![](/static/img/DataTypes/Data_Queue.svg)](https://commons.wikimedia.org/wiki/File:Data_Queue.svg)
+[![](/static/vendor/img/wikipedia/Data_Queue.svg)](https://commons.wikimedia.org/wiki/File:Data_Queue.svg)
 
 Queues are `FIFO` (First in, First out) data structures that let their users organize the data in the order it is received. This means that the first element added to the queue is the first element to be returned, which is specially useful in synchronization routines.
 
