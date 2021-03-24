@@ -82,7 +82,7 @@ SimpleLinkedList *BinaryTree_pre_order(BinaryTreeNode *tree, SimpleLinkedList *m
 }
 ```
 
-Based on the example, the result iteration using this steps will be: `+ * 1 2 / 3 4`
+Based on the example, the result iteration using this steps will be: `+ * a b / c d`
 
 ### Pos-order
 
@@ -110,7 +110,7 @@ SimpleLinkedList *BinaryTree_pos_order(BinaryTreeNode *tree, SimpleLinkedList *m
 }
 ```
 
-Based on the example, the result iteration using this steps will be: `1 2 * 3 4 / +`
+Based on the example, the result iteration using this steps will be: `a b * c d / +`
 
 ### In-Order
 
@@ -138,7 +138,7 @@ SimpleLinkedList *BinaryTree_in_order(BinaryTreeNode *tree, SimpleLinkedList *me
 }
 ```
 
-Based on the example, the result iteration using this steps will be: `1 * 2 + 3 / 4`
+Based on the example, the result iteration using this steps will be: `a * b + c / d`
 
 # References
 
