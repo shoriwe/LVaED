@@ -1,8 +1,3 @@
-# Priority Queue (C Implementation)
-
-# Source Code
-
-```c
 #ifndef COLLECTIONS_PRIORITY_QUEUE_H
 #define COLLECTIONS_PRIORITY_QUEUE_H
 
@@ -123,4 +118,3 @@ void PriorityQueue_reverse(PriorityQueue *queue) {
 }
 
 #endif //COLLECTIONS_PRIORITY_QUEUE_H
-```
