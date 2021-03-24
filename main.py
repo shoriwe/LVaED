@@ -59,7 +59,7 @@ def pygmentize(raw_markdown: str) -> str:
 def render_article(article_path: str) -> str:
     with open(article_path) as file:
         content = file.read()
-    html = markdown.markdown(pygmentize(content), extensions=["codehilite"])
+    html = markdown.markdown(pygmentize(content), extensions=["codehilite", "tables"])
     return html
 
 
