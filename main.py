@@ -73,7 +73,8 @@ def load_articles(app: flask.Flask):
     app.config["articles"] = {
         "list": render_article("markdown/articles/list.md"),
         "stack": render_article("markdown/articles/stack.md"),
-        "queue": render_article("markdown/articles/queue.md")
+        "queue": render_article("markdown/articles/queue.md"),
+        "binary_tree": render_article("markdown/articles/binary_tree.md"),
     }
 
 
@@ -97,8 +98,10 @@ def load_examples(app: flask.Flask):
         "list_stack": render_article("markdown/examples/c/list_stack.md"),
         "array_queue": render_article("markdown/examples/c/array_queue.md"),
         "list_queue": render_article("markdown/examples/c/list_queue.md"),
-        "priority_queue": render_article("markdown/examples/c/priority_queue.md")
-
+        "priority_queue": render_article("markdown/examples/c/priority_queue.md"),
+        "binary_tree": render_article("markdown/examples/c/binary_tree.md"),
+        "avl_tree": render_article("markdown/examples/c/avl_tree.md"),
+        "b_tree": render_article("markdown/examples/c/b_tree.md")
     }
     app.config["examples"]["java"] = {
         "simple_list": render_article("markdown/examples/java/simple_list.md"),
@@ -109,7 +112,10 @@ def load_examples(app: flask.Flask):
         "list_stack": render_article("markdown/examples/java/list_stack.md"),
         "array_queue": render_article("markdown/examples/java/array_queue.md"),
         "list_queue": render_article("markdown/examples/java/list_queue.md"),
-        "priority_queue": render_article("markdown/examples/java/priority_queue.md")
+        "priority_queue": render_article("markdown/examples/java/priority_queue.md"),
+        "binary_tree": render_article("markdown/examples/java/binary_tree.md"),
+        "avl_tree": render_article("markdown/examples/java/avl_tree.md"),
+        "b_tree": render_article("markdown/examples/java/b_tree.md")
     }
     app.config["examples"]["python"] = {
         "simple_list": render_article("markdown/examples/python/simple_list.md"),
@@ -120,7 +126,10 @@ def load_examples(app: flask.Flask):
         "list_stack": render_article("markdown/examples/python/list_stack.md"),
         "array_queue": render_article("markdown/examples/python/array_queue.md"),
         "list_queue": render_article("markdown/examples/python/list_queue.md"),
-        "priority_queue": render_article("markdown/examples/python/priority_queue.md")
+        "priority_queue": render_article("markdown/examples/python/priority_queue.md"),
+        "binary_tree": render_article("markdown/examples/python/binary_tree.md"),
+        "avl_tree": render_article("markdown/examples/python/avl_tree.md"),
+        "b_tree": render_article("markdown/examples/python/b_tree.md")
     }
 
 
@@ -136,8 +145,10 @@ def setup() -> flask.Flask:
     return app
 
 
+app = setup()
+
+
 def main():
-    app = setup()
     app.run("127.0.0.1", 5000, debug=False)
 
 
