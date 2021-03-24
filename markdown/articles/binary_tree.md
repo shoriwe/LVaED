@@ -144,4 +144,4 @@ Based on the example, the result iteration using this steps will be: `1 * 2 + 3 
 
 Identifier | Author | Source
 ---------- | ------ | ------
-1|Derrick Coetzee|https://commons.wikimedia.org/wiki/File:Binary_tree.svg
+1|Derrick Coetzee|[https://commons.wikimedia.org/wiki/File:Binary_tree.svg](https://commons.wikimedia.org/wiki/File:Binary_tree.svg)

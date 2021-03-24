@@ -1,6 +1,6 @@
 # Queue
 
-[![](/static/vendor/img/wikipedia/Data_Queue.svg)](https://commons.wikimedia.org/wiki/File:Data_Queue.svg)
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Data_Queue.svg"><img src="/static/vendor/img/wikipedia/Data_Queue.svg" alt="DataQueue" style="width: 500px; height: auto"/></a><p>[1] https://commons.wikimedia.org/wiki/File:Data_Queue.svg</p></div>
 
 Queues are `FIFO` (First in, First out) data structures that let their users organize the data in the order it is received. This means that the first element added to the queue is the first element to be returned, which is specially useful in synchronization routines.
 
@@ -37,8 +37,14 @@ public Object extract() {
 
 ## Priority Queue
 
-![](/static/img/DataTypes/PriorityQueue.png)
+<div style="text-align: center"><a href="/static/img/DataTypes/PriorityQueue.png"><img src="/static/img/DataTypes/PriorityQueue.png" alt="PriorityQueue" style="width: 500px; height: auto"/></a></div>
 
 This kind of queue differs for the first one mentioned in a peculiar way, it auto sort its content every time an element is added (really it only add the element in its respective place), it does that based on special attribute usually called `weight` which is a numeric value and let the own queue determine were it should put the new element.
 
 Its `Dequeue` method work almost the same way in comparison with a vanilla queue, the real change is in its `Enqueue` method which decides accordingly with the mentioned `weight` element where it should put the new element.
+
+# References
+
+Identifier | Author | Source
+---------- | ------ | ------
+1|User:Vegpuff|[https://commons.wikimedia.org/wiki/File:Data_Queue.svg](https://commons.wikimedia.org/wiki/File:Data_Queue.svg)
