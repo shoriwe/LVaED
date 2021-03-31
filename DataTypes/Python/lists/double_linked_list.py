@@ -43,7 +43,7 @@ class DoublyLinkedList(object):
 
     def index(self, value: object) -> int:
         for index, list_value in enumerate(self):
-            if list_value == value:
+            if list_value.value == value:
                 return index
         raise ValueError("Value not found")
 
