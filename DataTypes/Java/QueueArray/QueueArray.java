@@ -30,22 +30,19 @@ public class QueuArray {
 
     public Object extract() {
         if (first == last) {
-            System.out.printf("\nQueue is empty\n");
+            System.out.printf("empty");
             
         }
   
-        // shift all the elements from index 2 till rear
-        // to the right by one
+       
         else {
             for (int i = 0; i < last - 1; i++) {
                 array[i] = array[i + 1];
             }
   
-            // store 0 at rear indicating there's no element
             if (last < size)
                 array[last] = 0;
   
-            // decrement rear
             last--;
         }
         return null;
