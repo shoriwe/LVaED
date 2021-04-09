@@ -1,8 +1,3 @@
-# Array Based Queue (Java Implementation)
-
-# Source Code
-
-```java
 import java.util.Arrays;
 
 
@@ -114,4 +109,3 @@ public class QueuArray {
     }
 
 }
-```
