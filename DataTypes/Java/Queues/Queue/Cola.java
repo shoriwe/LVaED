@@ -22,9 +22,9 @@ public class Cola {
     }
 
     public Object extract() {
+        Object result = lista.getHead();
         lista.removeHead();
-        return lista.getHead();
-
+        return result;
     }
 
     public boolean insert(Object object) {

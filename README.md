@@ -1,6 +1,6 @@
 # LVaED
 
-![](https://github.com/shoriwe/LVaED/raw/main/static/img/logo.PNG)
+![](https://github.com/shoriwe/LVaED/raw/main/static/img/logo_transparent_background.png)
 
 ## Powered by
 
@@ -21,38 +21,62 @@ A preview of the website
 ### Homepage
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/HomePage.PNG" />
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/HomePage.png" />
 </td></tr></table>
 
 ### Presentation
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Presentation.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Presentation.png"/>
 </td></tr></table>
 
 #### Article
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Article.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Article.png"/>
 </td></tr></table>
 
 ### Examples
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Examples.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Examples.png"/>
 </td></tr></table>
 
 #### Code Preview
 
 <table><tr><td>
-    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/CodePreview.PNG"/>
+    <img src="https://github.com/shoriwe/LVaED/raw/main/resources/CodePreview.png"/>
 </td></tr></table>
 
 ### Transformation
 
-```
-Not implemented yet
-```
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Transformations.png"/>
+        </td>
+    </tr>
+</table>
+
+#### Source Code to Network Graph
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Transformations-Graph.png"/>
+        </td>
+    </tr>
+</table>
+
+#### AST-like representation and Source code View
+
+<table>
+    <tr>
+        <td>
+            <img src="https://github.com/shoriwe/LVaED/raw/main/resources/Transformations-Results-SourceCode.png"/>
+        </td>
+    </tr>
+</table>
 
 ## Installation
 
@@ -91,6 +115,12 @@ pip install -r requirements.txt
 ```shell script
 python main.py
 ```
+
+## Image resources
+
+Almost all the image resources where taken from [Wikipedia.org](https://es.wikipedia.org/) and [GeekForGeeks](https://www.geeksforgeeks.org/), so special thanks to this online reference platforms and the image authors for providing them.
+
+By clicking on the images of this website you should be redirected to the page where they were found, with the proper reference in `Wikipedia` or the respective article in `GeekForGeeks`.
 
 ## Production
 

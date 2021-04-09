@@ -1,0 +1,380 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "name": "sample-2.py",
+      "kind": "Script",
+      "id": 1
+    },
+    {
+      "name": "io",
+      "kind": "Module",
+      "id": 2
+    },
+    {
+      "name": "os",
+      "kind": "Module",
+      "id": 3
+    },
+    {
+      "name": "re",
+      "kind": "Module",
+      "id": 4
+    },
+    {
+      "name": "zipfile",
+      "kind": "Module",
+      "id": 5
+    },
+    {
+      "name": "flask",
+      "kind": "Module",
+      "id": 6
+    },
+    {
+      "name": "markdown",
+      "kind": "Module",
+      "id": 7
+    },
+    {
+      "name": "blueprints.example",
+      "kind": "Module",
+      "id": 8
+    },
+    {
+      "name": "blueprints.home",
+      "kind": "Module",
+      "id": 9
+    },
+    {
+      "name": "blueprints.presentation",
+      "kind": "Module",
+      "id": 10
+    },
+    {
+      "name": "blueprints.transformations",
+      "kind": "Module",
+      "id": 11
+    },
+    {
+      "name": "Zipper",
+      "kind": "Class",
+      "id": 12
+    },
+    {
+      "name": "object",
+      "kind": "Base",
+      "id": 13
+    },
+    {
+      "name": "__init__",
+      "kind": "Class Method",
+      "id": 14
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 15
+    },
+    {
+      "name": "append",
+      "kind": "Class Method",
+      "id": 16
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 17
+    },
+    {
+      "name": "filename",
+      "kind": "Argument",
+      "id": 18
+    },
+    {
+      "name": "content",
+      "kind": "Argument",
+      "id": 19
+    },
+    {
+      "name": "append_directory",
+      "kind": "Class Method",
+      "id": 20
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 21
+    },
+    {
+      "name": "path",
+      "kind": "Argument",
+      "id": 22
+    },
+    {
+      "name": "content",
+      "kind": "Class Method",
+      "id": 23
+    },
+    {
+      "name": "self",
+      "kind": "Argument",
+      "id": 24
+    },
+    {
+      "name": "pygmentize",
+      "kind": "Function",
+      "id": 25
+    },
+    {
+      "name": "raw_markdown",
+      "kind": "Argument",
+      "id": 26
+    },
+    {
+      "name": "render_article",
+      "kind": "Function",
+      "id": 27
+    },
+    {
+      "name": "article_path",
+      "kind": "Argument",
+      "id": 28
+    },
+    {
+      "name": "zip_library",
+      "kind": "Function",
+      "id": 29
+    },
+    {
+      "name": "library_directory",
+      "kind": "Argument",
+      "id": 30
+    },
+    {
+      "name": "load_articles",
+      "kind": "Function",
+      "id": 31
+    },
+    {
+      "name": "app",
+      "kind": "Argument",
+      "id": 32
+    },
+    {
+      "name": "load_libraries",
+      "kind": "Function",
+      "id": 33
+    },
+    {
+      "name": "app",
+      "kind": "Argument",
+      "id": 34
+    },
+    {
+      "name": "load_examples",
+      "kind": "Function",
+      "id": 35
+    },
+    {
+      "name": "app",
+      "kind": "Argument",
+      "id": 36
+    },
+    {
+      "name": "setup",
+      "kind": "Function",
+      "id": 37
+    },
+    {
+      "name": "main",
+      "kind": "Function",
+      "id": 38
+    }
+  ],
+  "links": [
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 2
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 3
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 4
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 5
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 6
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 7
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 8
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 9
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 10
+    },
+    {
+      "label": "Imports",
+      "source": 1,
+      "target": 11
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 12
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 25
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 27
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 29
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 31
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 33
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 35
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 37
+    },
+    {
+      "label": "Defines",
+      "source": 1,
+      "target": 38
+    },
+    {
+      "label": "Implements",
+      "source": 12,
+      "target": 13
+    },
+    {
+      "source": 12,
+      "target": 14
+    },
+    {
+      "source": 12,
+      "target": 16
+    },
+    {
+      "source": 12,
+      "target": 20
+    },
+    {
+      "source": 12,
+      "target": 23
+    },
+    {
+      "label": "Has",
+      "source": 14,
+      "target": 15
+    },
+    {
+      "label": "Has",
+      "source": 16,
+      "target": 17
+    },
+    {
+      "label": "Has",
+      "source": 16,
+      "target": 18
+    },
+    {
+      "label": "Has",
+      "source": 16,
+      "target": 19
+    },
+    {
+      "label": "Has",
+      "source": 20,
+      "target": 21
+    },
+    {
+      "label": "Has",
+      "source": 20,
+      "target": 22
+    },
+    {
+      "label": "Has",
+      "source": 23,
+      "target": 24
+    },
+    {
+      "label": "Has",
+      "source": 25,
+      "target": 26
+    },
+    {
+      "label": "Has",
+      "source": 27,
+      "target": 28
+    },
+    {
+      "label": "Has",
+      "source": 29,
+      "target": 30
+    },
+    {
+      "label": "Has",
+      "source": 31,
+      "target": 32
+    },
+    {
+      "label": "Has",
+      "source": 33,
+      "target": 34
+    },
+    {
+      "label": "Has",
+      "source": 35,
+      "target": 36
+    }
+  ]
+}
