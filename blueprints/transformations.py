@@ -95,6 +95,17 @@ def compile_code(code_tree: dict) -> str:
 	return code
 
 
+def list_objects(raw_json_graph: str) -> str:
+	result = ""
+	try:
+		json_graph = json.loads(raw_json_graph)
+		for node in json_graph["nodes"]:
+			result += node["kind"] + "|" + node["name"].replace("_", "\\_") + "\n"
+	except Exception:
+		pass
+	return result
+
+
 @transformations_blueprint.route("/transformations", methods=("GET", "POST"))
 def transformations():
 	graph_data_manager = None
@@ -209,14 +220,19 @@ def transformations():
 										 title=graph_title)
 			plot.renderers.append(network_graph)
 			script, div = bokeh.embed.components(plot)
+			listed_objects = list_objects(json_graph)
 			return flask.render_template(
 				"basic/page.html",
 				page_name="Transformations",
 				body_page="transformations/analyser.html",
-				content=markdown.markdown(
-					f"# Raw nodes\n\n\t:::json\n\t{json_graph}"
-					f"\n\n# Source Code\n\n\t:::python\n\t" + source_code.replace(
-						"\n", "\n\t"),
+				listed_objects=markdown.markdown(
+					"Name | Metalanguage Kind | AST Kind \n"
+					"---- | ---- | ----\n" + listed_objects + "\n",
+					extensions=["codehilite", "tables"]),
+				metalanguage_source_code=markdown.markdown(
+					"# Metalanguage\n\nGenerated metalanguage useful for sharing the graph or regenerate a code "
+					f"interface for future use. The metalanguage was stored in the JSON bellow.\n\n\t:::json\n\t{json_graph}"
+					"\n\n# Source Code\n\n\t:::python\n\t" + source_code.replace("\n", "\n\t"),
 					extensions=["codehilite"]),
 				plot_script=script,
 				plot_div=div,
