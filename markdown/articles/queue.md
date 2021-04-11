@@ -1,6 +1,6 @@
 # Queue
 
-<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Data_Queue.svg"><img src="/static/vendor/img/wikipedia/Data_Queue.svg" alt="DataQueue" style="width: 500px; height: auto"/></a><p>[1] https://commons.wikimedia.org/wiki/File:Data_Queue.svg</p></div>
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Data_Queue.svg"><img src="/static/vendor/img/wikipedia/Data_Queue.svg" alt="DataQueue" style="width: 500px; height: auto"/></a><p>[1] Data Queue | <a href="https://commons.wikimedia.org/wiki/File:Data_Queue.svg">https://commons.wikimedia.org/wiki/File:Data_Queue.svg</a></p></div>
 
 Queues are `FIFO` (First in, First out) data structures that let their users organize the data in the order it is received. This means that the first element added to the queue is the first element to be returned, which is specially useful in synchronization routines.
 
