@@ -181,7 +181,7 @@ class ListObjects(object):
 				class_method.append(class_method_argument["name"].replace("_", "\\_"))
 			class_methods.append(class_method)
 		name = node["name"].replace("_", "\\_")
-		self.classes += f"\n{node['id']} | {name} | " + ", ".join(bases) + " | " + "<br> ".join(
+		self.classes += f"\n{node['id']} | {name} | " + "<br> ".join(bases) + " | " + "<br> ".join(
 			f"{class_method[0]}\\(" + ", ".join(class_method[1:]) + ")" for class_method in class_methods)
 
 	def describe_function(self, node: dict):
