@@ -52,3 +52,8 @@
     border-bottom-width: 3px;
     border-right-width: 2px;
 }
+
+.option-description{
+    font-family: "Arial", serif;
+    font-size: large;
+}
