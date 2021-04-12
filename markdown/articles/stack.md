@@ -4,9 +4,10 @@ Stacks are the result of approaching a `LIFO` (Last in, First out) ordering with
 
 <div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Lifo_stack.png"><img src="/static/vendor/img/wikipedia/lifo_stack.png" alt="Stack" style="width: 500px; height: auto"/></a><p>[1] Lifo stack | <a href="https://commons.wikimedia.org/wiki/File:Lifo_stack.png">https://commons.wikimedia.org/wiki/File:Lifo_stack.png</a></p></div>
 
-Based on that, the to methods that a stack should have to be called that way are `pop` which remove and element from the stack and returns it, and `push` which adds a new element to the stack.
+Based on that, the to methods that a stack should have to be called that way are `pop` which remove the top element from the stack and returns it, and `push` which adds a new element on top of the stack.
 
-## Pop
+## Minimal methods to work with `Stacks`
+### - `Pop`
 
 Java implementation of the `pop` method in an array based stack
 
@@ -24,7 +25,7 @@ public Object pop() {
 
 As you see, after obtaining the element in top of the stack, it is immediately removed from it.
 
-## Push
+### - `Push`
 
 Java implementation of the `push` method in an array based stack
 
@@ -44,7 +45,7 @@ public boolean push(Object object) {
 }
 ```
 
-## Peek
+### - `Peek`
 
 In some circumstances the user may want to check the value stored in the top of the stack without removing it. In this scenarios is where `peek` method is useful, since it return the value without removing it from the stack. This way and extra `push` is not necessary.
 
