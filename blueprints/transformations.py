@@ -274,7 +274,16 @@ def transformations():
 							graph_data_manager.add_edge(1, class_id, label="Defines")
 							node_id += 1
 							for base in node.bases:
-								graph_data_manager.add_node(node_id, name=base.id, kind="Base")
+								if isinstance(base, ast.Attribute):
+									parts = []
+									while isinstance(base, ast.Attribute):
+										parts.append(base.attr)
+										base = base.value
+									parts.append(base.id)
+									base_name = ".".join(parts[::-1])
+								else:
+									base_name = base.id
+								graph_data_manager.add_node(node_id, name=base_name, kind="Base")
 								graph_data_manager.add_edge(class_id, node_id, label="Implements")
 								node_id += 1
 							for class_node in node.body:
@@ -300,7 +309,7 @@ def transformations():
 					json_graph = json.dumps(networkx.readwrite.node_link_data(graph_data_manager))
 					graph_title = python_code.filename
 					success = True
-			except (SyntaxError, ValueError, Exception):
+			except (SyntaxError, ValueError, Exception) as e:
 				pass
 		if not success:
 			code_map: werkzeug.datastructures.FileStorage
@@ -317,7 +326,7 @@ def transformations():
 					graph_title = raw_graph_data["nodes"][0]["name"]
 					json_graph = json.dumps(raw_graph_data)
 					success = True
-				except (json.JSONDecodeError, Exception):
+				except (json.JSONDecodeError, Exception) as e:
 					pass
 		if success:
 			network_graph = from_networkx(graph_data_manager, networkx.spring_layout, scale=100, center=(0, 0))
