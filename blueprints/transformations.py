@@ -19,7 +19,7 @@ __all__ = ["transformations_blueprint"]
 transformations_blueprint = flask.Blueprint("Transformation", "transformation")
 
 kinds = ["Script", "Module", "Class", "Function", "Class Method", "Base", "Argument", "ImportFrom",
-		 "ImportFromTarget"]
+         "ImportFromTarget"]
 
 
 def compile_code(code_tree: dict) -> str:
@@ -191,11 +191,11 @@ def transformations():
 		if success:
 			network_graph = from_networkx(graph_data_manager, networkx.spring_layout, scale=100, center=(0, 0))
 			network_graph.node_renderer.glyph = bokeh.models.Circle(size=15,
-																	fill_color=bokeh.transform.factor_cmap(
-																		"kind",
-																		bokeh.palettes.Category20[20],
-																		factors=kinds)
-																	)
+			                                                        fill_color=bokeh.transform.factor_cmap(
+				                                                        "kind",
+				                                                        bokeh.palettes.Category20[20],
+				                                                        factors=kinds)
+			                                                        )
 
 			network_graph.edge_renderer.glyph = bokeh.models.MultiLine(
 				line_alpha=0.5,
@@ -203,10 +203,10 @@ def transformations():
 				line_join='miter',
 			)
 			plot = bokeh.plotting.figure(tooltips=[("Object Name", "@name"), ("Kind", "@kind")],
-										 tools="pan,wheel_zoom,save,reset",
-										 x_range=bokeh.models.Range1d(-150, 150),
-										 y_range=bokeh.models.Range1d(-150, 150),
-										 title=graph_title)
+			                             tools="pan,wheel_zoom,save,reset",
+			                             x_range=bokeh.models.Range1d(-150, 150),
+			                             y_range=bokeh.models.Range1d(-150, 150),
+			                             title=graph_title)
 			plot.renderers.append(network_graph)
 			script, div = bokeh.embed.components(plot)
 			return flask.render_template(
