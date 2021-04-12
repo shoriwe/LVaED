@@ -43,7 +43,7 @@ class DoublyLinkedList(object):
 
 	def index(self, value: object) -> int:
 		for index, list_value in enumerate(self):
-			if list_value == value:
+			if list_value.value == value:
 				return index
 		raise ValueError("Value not found")
 
@@ -115,7 +115,7 @@ class DoublyLinkedList(object):
 				self.end.next = None
 			else:
 				before = del_target.before
-				before.before = None
+				before.next = None
 				self.end = before
 			del del_target
 		else:
@@ -228,15 +228,17 @@ class DoublyLinkedList(object):
 					break
 		self.length += 1
 
-	def append(self, value: object):
-		new_end = list_node.ListNode(value)
-		if self.length == 0:
-			self.start = new_end
+		def append(self, value: object):
+			new_end = list_node.ListNode(value)
+			if self.length == 0:
+				self.start = new_end
+				self.end = new_end
+			elif self.length == 1:
+				self.start.next = new_end
+				new_end.before = self.start
+			else:
+				old_end = self.end
+				old_end.next = new_end
+				new_end.before = old_end
 			self.end = new_end
-		else:
-			old_end = self.end
-			old_end.next = new_end
-			new_end.before = old_end
-			self.end = new_end
-		self.end = new_end
-		self.length += 1
+			self.length += 1

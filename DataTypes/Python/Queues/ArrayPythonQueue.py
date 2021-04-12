@@ -1,8 +1,3 @@
-# Array Based Queue (Python Implementation)
-
-# Source Code
-
-```python
 # cola
 
 class ArrayQueue:
@@ -55,4 +50,3 @@ class ArrayQueue:
 
 	def toString(self):
 		return str(self.items)
-```

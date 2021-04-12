@@ -1,8 +1,3 @@
-# Binary Tree (Python Implementation)
-
-# Source Code
-
-```python
 class BinaryTreeNode:
 	def __init__(self, value, left=None, right=None):
 		self.value = value
@@ -48,4 +43,3 @@ class BinaryTreeNode:
 			if value == node:
 				return True
 		return False
-```

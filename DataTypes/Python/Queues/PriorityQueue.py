@@ -1,8 +1,3 @@
-# Priority Queue (Python Implementation)
-
-# Source Code
-
-```python
 class PriorityQueueNode(object):
 	def __init__(self, value: object, priority: int):
 		self.value = value
@@ -41,4 +36,3 @@ class PriorityQueue(object):
 
 	def __contains__(self, item):
 		return item in self.content
-```

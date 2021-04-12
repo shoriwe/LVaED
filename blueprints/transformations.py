@@ -21,7 +21,6 @@ transformations_blueprint = flask.Blueprint("Transformation", "transformation")
 kinds = ["Script", "Module", "Class", "Function", "Class Method", "Base", "Argument", "ImportFrom",
          "ImportFromTarget"]
 
-
 def get_parent(node: dict, links: dict):
 	parent = tuple(filter(lambda node_id: node["id"] in links[node_id], links.keys()))[0]
 	links[parent].remove(node["id"])

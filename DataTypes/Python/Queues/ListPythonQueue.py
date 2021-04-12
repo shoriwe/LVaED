@@ -1,14 +1,12 @@
-# Array Based Queue (Python Implementation)
+# colas
 
-# Source Code
+import double_linked_list
 
-```python
-# cola
 
-class ArrayQueue:
+class ListQueue:
 
 	def __init__(self):
-		self.items = []
+		self.items = double_linked_list.DoublyLinkedList()
 		self.reversed = False
 
 	def enqueue(self, item):
@@ -26,14 +24,16 @@ class ArrayQueue:
 		else:
 			if self.reversed:
 				result = self.items[0]
-				self.items = self.items[1:]
+				del self.items[0]
+
 			else:
-				result = self.items.pop()
+				result = self.items[self.items.length - 1]
+				del self.items[self.items.length - 1]
 
 		return result
 
 	def len(self):
-		return len(self.items)
+		return self.items.length
 
 	def reverse(self):
 		if self.reversed:
@@ -42,17 +42,13 @@ class ArrayQueue:
 			self.reversed = True
 
 	def isEmpty(self):
-		return len(self.items) == 0
+		return self.items.length == 0
 
 	def clear(self):
 		self.items.clear()
-
-	def sort(self):
-		self.items.sort()
 
 	def search(self, value):
 		return value in self.items
 
 	def toString(self):
 		return str(self.items)
-```
