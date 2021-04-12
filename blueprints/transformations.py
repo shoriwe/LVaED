@@ -97,7 +97,7 @@ class Compiler(object):
 				break
 			self.cursor += 1
 			arguments.append(argument["name"])
-		return f"def {node['name']}(" + ", ".join(arguments) + "\n\tpass"
+		return f"def {node['name']}(" + ", ".join(arguments) + "):\n\tpass"
 
 	def compile_code(self) -> str:
 		code = ""
