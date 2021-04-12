@@ -1,8 +1,3 @@
-# Binary Tree (Java implementation)
-
-# Source Code
-
-```java
 public class BiTree {
 
     public Node root;
@@ -161,4 +156,3 @@ public class BiTree {
     }
 
 }
-```

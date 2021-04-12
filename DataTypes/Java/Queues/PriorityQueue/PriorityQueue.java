@@ -1,8 +1,3 @@
-# Priority Queue (Java Implementation)
-
-# Source Code
-
-```java
 import java.util.Arrays;
 import java.util.Queue;
 
@@ -55,4 +50,3 @@ public class QueuePriority {
         return item == 0;
     }
 }
-```
