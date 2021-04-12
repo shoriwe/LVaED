@@ -1,6 +1,6 @@
 # Linked List
 
-<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:C_language_linked_list.png"><img src="/static/vendor/img/wikipedia/C_language_linked_list.png" alt="ListExample" style="width: 500px; height: auto"/></a><p>[1] https://commons.wikimedia.org/wiki/File:C_language_linked_list.png</p></div>
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:C_language_linked_list.png"><img src="/static/vendor/img/wikipedia/C_language_linked_list.png" alt="ListExample" style="width: 500px; height: auto"/></a><p>[1] C language linked list | <a href="https://commons.wikimedia.org/wiki/File:C_language_linked_list.png">https://commons.wikimedia.org/wiki/File:C_language_linked_list.png</a></p></div>
 
 A linked list is a special data type with the interesting behavior of not having a predefined length during it's initialization, this means that it's length will increase until memory became insufficient. The difference with a traditional array, is that elements are acceded by iterating it until we reach the target value, instead of a memory address offset pointing to it, that behavior can make lists a problem specially when they have to many elements.
 
@@ -49,16 +49,16 @@ public class ListNode {
     }
 }
 ```
+## Types of Lists
+### - Simply Linked Lists
 
-## Simply Linked Lists
-
-<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Singly-linked-list.svg"><img src="/static/vendor/img/wikipedia/Singly-linked-list.svg" alt="SinglyLinkedList" style="width: 500px; height: auto"/></a><p>[2] https://commons.wikimedia.org/wiki/File:Singly-linked-list.svg</p></div>
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Singly-linked-list.svg"><img src="/static/vendor/img/wikipedia/Singly-linked-list.svg" alt="SinglyLinkedList" style="width: 500px; height: auto"/></a><p>[2] Singly-linked-list | <a href="https://commons.wikimedia.org/wiki/File:Singly-linked-list.svg">https://commons.wikimedia.org/wiki/File:Singly-linked-list.svg</a></p></div>
 
 The simple linked list is the base concept of the list, it handle the connection between node in only one direction, normally associating its physical orientation with the right (`next`) 
 
 Removing an element of a list is as simple as disassociating it from the nodes conected to it. This means that to remove a node, you only need to delete the relation of the node before the targeted one.
 
-<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:CPT-LinkedLists-deletingnode.svg"><img src="/static/vendor/img/wikipedia/CPT-LinkedLists-deletingnode.svg" alt="CPT-LinkedLists" style="width: 500px; height: auto"/></a><p>[3] https://commons.wikimedia.org/wiki/File:CPT-LinkedLists-deletingnode.svg</p></div>
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:CPT-LinkedLists-deletingnode.svg"><img src="/static/vendor/img/wikipedia/CPT-LinkedLists-deletingnode.svg" alt="CPT-LinkedLists" style="width: 500px; height: auto"/></a><p>[3] CPT-LinkedLists-deletingnode | <a href="https://commons.wikimedia.org/wiki/File:CPT-LinkedLists-deletingnode.svg">https://commons.wikimedia.org/wiki/File:CPT-LinkedLists-deletingnode.svg</a></p></div>
 
 In `Java` its append operation will be like:
 
@@ -76,15 +76,15 @@ public void Append(Object value) {
 }
 ```
 
-## Doubly Linked Lists
+### - Doubly Linked Lists
 
 Doubly Linked Lists differ from Simple ones in one small detail, every node also knows which node they have before, this means that each node make use of the `before` property to point to the node that is pointing to them
 
-<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Doubly-linked-list.svg"><img src="/static/vendor/img/wikipedia/Doubly-linked-list.svg" alt="DoublyLinkedList" style="width: 500px; height: auto"/></a><p>[4] https://commons.wikimedia.org/wiki/File:Doubly-linked-list.svg</p></div>
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Doubly-linked-list.svg"><img src="/static/vendor/img/wikipedia/Doubly-linked-list.svg" alt="DoublyLinkedList" style="width: 500px; height: auto"/></a><p>[4] Doubly-linked-list | <a href="https://commons.wikimedia.org/wiki/File:Doubly-linked-list.svg">https://commons.wikimedia.org/wiki/File:Doubly-linked-list.svg</a></p></div>
 
-## Simple Circular Linked Lists
+### - Simple Circular Linked Lists
 
-<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png"><img src="/static/vendor/img/wikipedia/Circurlar_linked_list.png" alt="CircularSimpleLinkedList" style="width: 500px; height: auto"/></a><p>[5] https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png</p></div>
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png"><img src="/static/vendor/img/wikipedia/Circurlar_linked_list.png" alt="CircularSimpleLinkedList" style="width: 500px; height: auto"/></a><p>[5] Circurlar linked list | <a href="https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png">https://commons.wikimedia.org/wiki/File:Circurlar_linked_list.png</a></p></div>
 
 The difference between circular and more traditional list is that this kind of list doesn't have an end, or at least they don't have it when we iterate over it. This means that we can still point to a virtual last `node` but this last node will have its `next`, pointing to the first value this way, when ever we request the next value we will received.
 
@@ -106,9 +106,9 @@ public void Append(Object value) {
         this.End.Next = this.Start; // Unique behavior of circular lists
     }
 ```
-## Doubly Circular Linked Lists
+### - Doubly Circular Linked Lists
 
-<div style="text-align: center"><a href="https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/"><img src="/static/vendor/img/geekforgeeks/DoubleCircularLinkedList.png" alt="CircularDoubleLinkedList" style="width: 500px; height: auto"/></a><p>[6] https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/</p></div>
+<div style="text-align: center"><a href="https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/"><img src="/static/vendor/img/geekforgeeks/DoubleCircularLinkedList.png" alt="CircularDoubleLinkedList" style="width: 500px; height: auto"/></a><p>[6] Doubly Circular Linked List | <a href="https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/">https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/</a></p></div>
 
 Similar to the behavior of the `Simple Circular Linked List`, this kind of list have associated its end with its start and the other way around, this means that when it is iterated from the end to start, it will never stop since the `before` of the start is pointing to the `end` node
 
@@ -126,6 +126,164 @@ public boolean add(Object object) {
         this.Start.Before = this.End;
     }
     return result;
+}
+```
+
+## Minimal methods to work with `Lists`
+
+### - `Append` or `pushBack`
+
+The common behavior of this method is add a new element to the end of the list.
+
+```c
+bool SimpleLinkedList_append(struct SimpleLinkedList *list, void *value, size_t size) {
+    if (list == NULL) {
+        return FALSE;
+    }
+    if (list->length + 1 == SIZE_MAX) {
+        return FALSE;
+    }
+    if (list->start == NULL) {
+        list->start = malloc(sizeof(struct ListNode));
+        if (size > 0) {
+            list->start->value = malloc(size);
+            memcpy(list->start->value, value, size);
+            list->start->copied = TRUE;
+        } else {
+            list->start->value = value;
+        }
+        list->start->value_size = size;
+        list->start->next = NULL;
+        list->length++;
+        list->end = list->start;
+        return TRUE;
+    }
+    struct ListNode *old_last_node = list->end;
+    struct ListNode *new_node = malloc(sizeof(struct ListNode));
+    if (size > 0) {
+        new_node->value = malloc(size);
+        new_node->copied = TRUE;
+        memcpy(new_node->value, value, size);
+    } else {
+        new_node->value = value;
+    }
+    new_node->value_size = size;
+    new_node->next = NULL;
+    old_last_node->next = new_node;
+    list->end = new_node;
+    list->length++;
+    return TRUE;
+}
+```
+
+### - `Insert`
+
+Insert is usually implemented in to be used anytime but just when the list is not empty, this way the  user can specify, usually an index to put the new value into it.
+
+```c
+bool SimpleLinkedList_insert(struct SimpleLinkedList *list, unsigned long long int index, void *value, size_t size) {
+    if (list == NULL) {
+        return FALSE;
+    }
+    if (list->length == 0 || index >= list->length) {
+        return FALSE;
+    }
+    if (list->length + 1 == SIZE_MAX) {
+        return FALSE;
+    }
+    struct ListNode *new_node = malloc(sizeof(struct ListNode));
+    if (size != 0) {
+        new_node->value = malloc(size);
+        new_node->copied = TRUE;
+        memcpy(new_node->value, value, size);
+    } else {
+        new_node->value = value;
+    }
+    new_node->value_size = size;
+    if (index == 0) {
+        struct ListNode *old_start = list->start;
+        new_node->next = old_start;
+        list->start = new_node;
+    } else if (index == (list->length - 1)) {
+        struct ListNode *end = list->end;
+        new_node->next = end;
+        struct ListNode *before_end = SimpleLinkedList_get(list, list->length - 2);
+        before_end->next = new_node;
+    } else {
+        struct ListNode *current = SimpleLinkedList_get(list, index);
+        struct ListNode *before = SimpleLinkedList_get(list, index - 1);
+        before->next = new_node;
+        new_node->next = current;
+    }
+    list->length++;
+    return TRUE;
+}
+```
+
+### - `Set`
+
+Set is a method which is used when the list is not empty and the user needs to update an existing value inside the list.
+
+```c
+bool SimpleLinkedList_set(struct SimpleLinkedList *list, unsigned long long int index, void *value, size_t size,
+                          bool delete_old) {
+    if (list == NULL) {
+        return FALSE;
+    }
+    if (list->length == 0 || index >= list->length) {
+        return FALSE;
+    }
+    struct ListNode *current = list->start;
+    for (unsigned long long int list_index = 0; list_index != list->length; list_index++) {
+        if (list_index == index) {
+            break;
+        }
+        current = current->next;
+    }
+    void *old_value = current->value;
+    if (size != 0) {
+        void *new_value = malloc(size);
+        memcpy(new_value, value, size);
+        current->copied = TRUE;
+        current->value = new_value;
+    } else {
+        current->value = value;
+    }
+    current->value_size = size;
+    if (delete_old == TRUE && current->copied == TRUE) {
+        free(old_value);
+    }
+    return FALSE;
+}
+```
+
+### - `Remove`
+
+Remove deletes the first element found in the list that is equal to the element provided as reference.
+
+### - `Get`
+
+Get is used when the list is not empty and the user wants to retrieve an element of it approaching the element `index`.
+
+```c
+struct ListNode *SimpleLinkedList_get(struct SimpleLinkedList *list, unsigned long long int index) {
+    if (list == NULL) {
+        return NULL;
+    }
+    if (list->length == 0 || index >= list->length) {
+        return NULL;
+    }
+    struct ListNode *current = list->start;
+    for (unsigned long long int list_index = 0; list_index < list->length; list_index++) {
+        if (list_index == index) {
+            break;
+        }
+        current = current->next;
+    }
+    if (current == NULL) {
+        return NULL;
+    }
+    return current;
 }
 ```
 

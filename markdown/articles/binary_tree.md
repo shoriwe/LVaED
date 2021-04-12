@@ -2,7 +2,7 @@
 
 Binary trees are one of the most applicable DataTypes in computer science and can represent a lot of real concepts of the real world. With the base concept of every node contains only two sub-nodes (`left` and `right`), the binary tree is able to represent perfectly mathematical expression, family successions,
 
-<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Binary_tree.svg"><img src="/static/vendor/img/wikipedia/Binary_tree.svg" alt="BinaryTree" style="width: 500px; height: auto"/></a><p>[1] https://commons.wikimedia.org/wiki/File:Binary_tree.svg</p></div>
+<div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Binary_tree.svg"><img src="/static/vendor/img/wikipedia/Binary_tree.svg" alt="BinaryTree" style="width: 500px; height: auto"/></a><p>[1] Binary tree | <a href="https://commons.wikimedia.org/wiki/File:Binary_tree.svg">https://commons.wikimedia.org/wiki/File:Binary_tree.svg</a></p></div>
 
 ## Node
 
@@ -140,6 +140,32 @@ SimpleLinkedList *BinaryTree_in_order(BinaryTreeNode *tree, SimpleLinkedList *me
 
 Based on the example, the result iteration using this steps will be: `a * b + c / d`
 
+## Binary trees properties
+
+When we usually refer to any kind of tree, it's possible to conclude that all have this tree properties.
+
+### - Height
+
+Height refers to the maximum depth level that a tree can have from it's route to it the most far node.
+
+<div style="text-align: center"><a href="/static/img/DataTypes/BinaryTreeHeight.png"><img src="/static/img/DataTypes/BinaryTreeHeight.png" alt="BinaryTreeHeight.png" style="width: 500px; height: auto"/></a></div>
+
+The height concept can be used to balance binary trees by targeting the same height for every sub-tree in each of the sides of every node in the tree.
+
+<div style="text-align: center"><a href="/static/img/DataTypes/BinaryTreeBalanced.png"><img src="/static/img/DataTypes/BinaryTreeBalanced.png" alt="BinaryTreeBalanced.png" style="width: 500px; height: auto"/></a></div>
+
+The last image shows a binary tree balanced having to perfectly balanced sub trees with height 2.
+
+<div style="text-align: center"><a href="/static/img/DataTypes/BinaryTreeUnBalanced.png"><img src="/static/img/DataTypes/BinaryTreeUnBalanced.png" alt="BinaryTreeUnBalanced.png" style="width: 500px; height: auto"/></a></div>
+
+By the other hand, this binary tree shows a sub-tree with height 2 perfectly balanced and other that is not balanced, making the root based tree not balanced too.
+
+### - Level
+
+The level of a node is determined by its depth having as reference with level 0 the root of the tree.
+
+<div style="text-align: center"><a href="/static/img/DataTypes/BinaryTreeLevels.png"><img src="/static/img/DataTypes/BinaryTreeLevels.png" alt="BinaryTreeLevels.png" style="width: 500px; height: auto"/></a></div>
+ 
 # References
 
 Identifier | Author | Source
