@@ -23,7 +23,6 @@
 
 .data-type-container:hover {
     opacity: 80%;
-    background-color: #f1f2f6;
 }
 
 .data-type {
@@ -35,4 +34,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-decoration: none;
+}
+
+.data-type-image {
+    padding: 2.5% 4%;
+    width: 90%;
+    height: 90%;
+    filter: blur(6px);
+}
+
+.data-type-image:hover {
+    filter: blur(0px);
 }
