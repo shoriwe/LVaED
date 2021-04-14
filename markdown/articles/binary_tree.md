@@ -140,7 +140,65 @@ SimpleLinkedList *BinaryTree_in_order(BinaryTreeNode *tree, SimpleLinkedList *me
 
 Based on the example, the result iteration using this steps will be: `a * b + c / d`
 
-## Binary trees properties
+## Binary trees specific properties
+
+This properties are Binary tree specific and all of the apply to binary trees full filled with numeric values.
+
+### Binary Insert
+
+The binary insertion consist in comparing each existing node in the tree with the insertion value, if the node value is greater than the reference it add the element to the left, but if the node value is lower or equal it add the insertion value to the right side.
+
+In resume this are the insertion steps:
+
+1. Compare node value with value insertion value.
+2. If node value is greater than insertion value, go to step `4`.
+3. If node value is lower or equal than insertion value go to step `5`.
+4. If node's left child is null, assign the insertion value to  it, the other way repeat this sequence of step but with this child.
+5. If node's right child is null, assign the insertion value to  it, the other way repeat this sequence of step but with this child.
+
+#### Example
+
+In this example, the program will try to insert the number `4` in the binary tree.
+
+<div style="text-align: center"><a href="/static/img/DataTypes/BinaryInsert.png"><img src="/static/img/DataTypes/BinaryInsert.png" alt="BinaryInsert.png" style="width: 500px; height: auto"/></a></div>
+
+### Binary search
+
+This kind of tree traversal is specific to speed up the search a value in the content of a binary tree full filled with numbers.
+
+This behavior can be only archived when each number was added to the tree approaching the Binary Insertion algorithm for it. Any other way will probably give unexpected results.
+
+The algorithm consists in traverse the tree but comparing each node value with the value received, if the node value is lower than the reference value, we traverse the right sub-tree, the other way we will traverse the left one. In case we find and equal value, we return the node pointing to it.
+
+#### Example
+
+In this example, the program will try to insert the number `4` in the binary tree.
+
+<div style="text-align: center"><a href="/static/img/DataTypes/BinarySearch.png"><img src="/static/img/DataTypes/BinarySearch.png" alt="BinarySearch.png" style="width: 500px; height: auto"/></a></div>
+
+### Binary Remove
+
+When removing in a binary tree, first the program will search the node approaching a binary search, then with the targeted node it will approach one of this rules to decide how it should connect the other nodes.
+
+* Leaf nodes are removed directly.
+* One child nodes are replaced with it's corresponding child.
+* For Two child nodes. With left one the `left-most_right` rule is approached. With the right one the `right-most_left` rule is used.
+
+#### Left-Most_Right
+
+Taking the left node, the program will search for the most far and immediate node in the right.
+
+#### Right-Most_Left
+
+Taking the right node, the program will search for the most far and immediate node in the left.
+
+#### Example
+
+The next gif will explain visually how binary remove works
+
+<div style="text-align: center"><a href="/static/img/DataTypes/BinaryRemove.gif"><img src="/static/img/DataTypes/BinaryRemove.gif" alt="BinaryRemove.gif" style="width: 500px; height: auto"/></a></div>
+
+## General trees properties
 
 When we usually refer to any kind of tree, it's possible to conclude that all have this tree properties.
 
