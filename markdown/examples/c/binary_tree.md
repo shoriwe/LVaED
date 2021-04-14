@@ -3,10 +3,6 @@
 # Source Code
 
 ```c
-//
-// Created by universidad on 3/24/2021.
-//
-
 #ifndef COLLECTIONS_BINARY_TREE_H
 #define COLLECTIONS_BINARY_TREE_H
 
