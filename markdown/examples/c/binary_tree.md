@@ -3,11 +3,16 @@
 # Source Code
 
 ```c
+//
+// Created by universidad on 3/24/2021.
+//
+
 #ifndef COLLECTIONS_BINARY_TREE_H
 #define COLLECTIONS_BINARY_TREE_H
 
 #define LEFT 0
 #define RIGHT 1
+#define ANY 2
 
 #include <stdlib.h>
 #include <string.h>
@@ -104,6 +109,154 @@ BinaryTreeNode *BinaryTree_search(BinaryTreeNode *node, is_equal_condition condi
         return NULL;
     }
     return SimpleLinkedList_get(content, index)->value;
+}
+
+BinaryTreeNode *BinaryTree_int_binary__search(BinaryTreeNode *node, int value) {
+    if (node == NULL) {
+        return NULL;
+    }
+    if ((*(int *) node->value) == value) {
+        return node;
+    }
+    BinaryTreeNode *result = NULL;
+    if ((*(int *) node->value) > value) {
+        result = BinaryTree_int_binary__search(node->left, value);
+    }
+    if (((*(int *) node->value) < value) && result == NULL) {
+        result = BinaryTree_int_binary__search(node->right, value);
+    }
+
+    return result;
+}
+
+BinaryTreeNode *FindMostLeftRight(BinaryTreeNode *start) {
+    if (start == NULL) {
+        return NULL;
+    }
+    if (start->right == NULL) {
+        return NULL;
+    }
+    if (start->right->right == NULL) {
+        BinaryTreeNode *result = start->right;
+        start->right = start->right->left;
+        return result;
+    }
+    return FindMostLeftRight(start->right);
+}
+
+BinaryTreeNode *FindMostRightLeft(BinaryTreeNode *start) {
+    if (start == NULL) {
+        return NULL;
+    }
+    if (start->left == NULL) {
+        return NULL;
+    }
+    if (start->left->left == NULL) {
+        BinaryTreeNode *result = start->left;
+        start->left = start->left->right;
+        return result;
+    }
+    return FindMostRightLeft(start->left);
+}
+
+BinaryTreeNode *BinaryTree_int_binary_insert(BinaryTreeNode *node, int *value) {
+    if (node == NULL) {
+        return BinaryTreeNode_new(value, 0, NULL, NULL);
+    }
+    if ((*(int *) node->value) < (*value)) {
+        node->right = BinaryTree_int_binary_insert(node->right, value);
+    } else if ((*(int *) node->value) > (*value)) {
+        node->left = BinaryTree_int_binary_insert(node->left, value);
+
+    }
+    return node;
+}
+
+bool BinaryTree_binary_remove_int(BinaryTreeNode *node, int value, BinaryTreeNode *parent, char parent_direction) {
+    if (node == NULL) {
+        return FALSE;
+    }
+    if ((*(int *) node->value) == value) {
+
+        // DO something to updated the current state of the tree
+        BinaryTreeNode *left_target = NULL;
+        BinaryTreeNode *right_target = NULL;
+        bool isLeaf = TRUE;
+        bool appendLast = TRUE;
+        if (node->left != NULL && node->right == NULL) {
+            left_target = node->left;
+            isLeaf = FALSE;
+            appendLast = FALSE;
+        } else if (node->left == NULL && node->right != NULL) {
+            right_target = node->right;
+            isLeaf = FALSE;
+            appendLast = FALSE;
+        } else if (node->left != NULL && node->right != NULL) {
+            left_target = FindMostLeftRight(node->left);
+            if (left_target == NULL) {
+                right_target = FindMostRightLeft(node->right);
+                // Do something when both are null
+            }
+            isLeaf = FALSE;
+        }
+        if (isLeaf == TRUE) { // Node is leaf
+            printf("Is leaf\n");
+            switch (parent_direction) {
+                case LEFT:
+                    parent->left = NULL;
+                    break;
+                case RIGHT:
+                    parent->right = NULL;
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            if (parent != NULL) {
+                switch (parent_direction) {
+                    case LEFT:
+                        if (right_target != NULL) {
+                            parent->left = right_target;
+                        } else if (left_target != NULL) {
+                            parent->left = left_target;
+                        } else {
+                            printf("WHAT LEFT!\n");
+                            break;
+                        }
+                        if (appendLast == TRUE) {
+                            parent->left->left = node->left;
+                            parent->left->right = node->right;
+                        }
+                        break;
+                    case RIGHT:
+                        if (right_target != NULL) {
+                            parent->right = right_target;
+                        } else if (left_target != NULL) {
+                            parent->right = left_target;
+                        } else {
+                            printf("WHAT RIGHT!\n");
+                            break;
+                        }
+                        if (appendLast == TRUE) {
+                            parent->right->left = node->left;
+                            parent->right->right = node->right;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        // Finally Disconnect the node
+        node->left = NULL;
+        node->right = NULL;
+        return TRUE;
+    }
+    bool removed_left = BinaryTree_binary_remove_int(node->left, value, node, LEFT);
+    if (removed_left == FALSE) {
+        return BinaryTree_binary_remove_int(node->right, value, node, RIGHT);
+    }
+    return TRUE;
 }
 
 #endif //COLLECTIONS_BINARY_TREE_H
