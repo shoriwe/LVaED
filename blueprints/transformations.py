@@ -21,6 +21,7 @@ transformations_blueprint = flask.Blueprint("Transformation", "transformation")
 kinds = ["Script", "Module", "Class", "Function", "Class Method", "Base", "Argument", "ImportFrom",
          "ImportFromTarget"]
 
+
 def get_parent(node: dict, links: dict):
 	parent = tuple(filter(lambda node_id: node["id"] in links[node_id], links.keys()))[0]
 	links[parent].remove(node["id"])
@@ -119,7 +120,7 @@ class Compiler(object):
 		return code
 
 
-class ListObjects(object):
+class DescribeCode(object):
 	def __init__(self, raw_code_tree: str):
 		code_tree = json.loads(raw_code_tree)
 		self.imports = "ID | Source | Names\n ---- | ---- | ----"
@@ -128,6 +129,7 @@ class ListObjects(object):
 		self.updated_classes = False
 		self.functions = "ID | Function Name | Arguments\n ----- | ----- | -----"
 		self.updated_functions = False
+		self.counter = {"imports": 0, "classes": 0, "functions": 0}
 		self.code_tree = code_tree
 		self.nodes = self.code_tree["nodes"].copy()
 		self.cursor = 1
@@ -148,6 +150,7 @@ class ListObjects(object):
 				break
 			self.cursor += 1
 			names.append(import_name["name"].replace("_", "\\_"))
+			self.counter["imports"] += 1
 		name = node['name'].replace("_", "\\_")
 		self.imports += f"\n{node['id']} | {name} | " + ", ".join(names)
 
@@ -195,7 +198,9 @@ class ListObjects(object):
 		self.functions += f"\n{node['id']} | {name} | " + "<br> ".join(arguments)
 
 	def generate_code_description(self):
-		result = ""
+		result = "## Amount of objects\n\nKind | Amount\n" + "---- | ----\n" + "\n".join(
+			f"{kind.title()} | {self.counter[kind]}" for kind in self.counter.keys()
+		) + "\n\n\n\n"
 		if self.updated_imports:
 			result += "## Script imports\n\n\n" + self.imports + "\n\n\n\n"
 		if self.updated_classes:
@@ -204,7 +209,7 @@ class ListObjects(object):
 			result += "## Script defined functions\n\n\n" + self.functions + "\n\n\n\n"
 		return result
 
-	def list_objects(self) -> str:
+	def describe(self) -> str:
 		while self.cursor < self.number_of_nodes:
 			node = self.nodes[self.cursor]
 			self.cursor += 1
@@ -212,12 +217,15 @@ class ListObjects(object):
 				self.updated_imports = True
 				self.describe_import_from(node)
 			elif node["kind"] == "Module":
+				self.counter["imports"] += 1
 				self.updated_imports = True
 				self.describe_module(node)
 			elif node["kind"] == "Class":
+				self.counter["classes"] += 1
 				self.updated_classes = True
 				self.describe_class(node)
 			elif node["kind"] == "Function":
+				self.counter["functions"] += 1
 				self.updated_functions = True
 				self.describe_function(node)
 			else:
@@ -237,7 +245,6 @@ def transformations():
 		python_code: werkzeug.datastructures.FileStorage
 		python_code = flask.request.files.get("python-code")
 		if python_code is not None:
-			# ToDo: Do something to parse the input file
 			buffer = io.BytesIO()
 			python_code.save(buffer)
 			buffer.seek(0)
@@ -272,9 +279,25 @@ def transformations():
 							class_id = node_id
 							graph_data_manager.add_node(class_id, name=class_name, kind="Class")
 							graph_data_manager.add_edge(1, class_id, label="Defines")
+							found_object_base = False
 							node_id += 1
 							for base in node.bases:
-								graph_data_manager.add_node(node_id, name=base.id, kind="Base")
+								if isinstance(base, ast.Attribute):
+									parts = []
+									while isinstance(base, ast.Attribute):
+										parts.append(base.attr)
+										base = base.value
+									parts.append(base.id)
+									base_name = ".".join(parts[::-1])
+								else:
+									base_name = base.id
+								if base_name == "object":
+									found_object_base = True
+								graph_data_manager.add_node(node_id, name=base_name, kind="Base")
+								graph_data_manager.add_edge(class_id, node_id, label="Implements")
+								node_id += 1
+							if not found_object_base:
+								graph_data_manager.add_node(node_id, name="object", kind="Base")
 								graph_data_manager.add_edge(class_id, node_id, label="Implements")
 								node_id += 1
 							for class_node in node.body:
@@ -300,7 +323,7 @@ def transformations():
 					json_graph = json.dumps(networkx.readwrite.node_link_data(graph_data_manager))
 					graph_title = python_code.filename
 					success = True
-			except (SyntaxError, ValueError, Exception):
+			except (SyntaxError, ValueError, Exception) as e:
 				pass
 		if not success:
 			code_map: werkzeug.datastructures.FileStorage
@@ -317,35 +340,39 @@ def transformations():
 					graph_title = raw_graph_data["nodes"][0]["name"]
 					json_graph = json.dumps(raw_graph_data)
 					success = True
-				except (json.JSONDecodeError, Exception):
+				except (json.JSONDecodeError, Exception) as e:
 					pass
 		if success:
 			network_graph = from_networkx(graph_data_manager, networkx.spring_layout, scale=100, center=(0, 0))
-			network_graph.node_renderer.glyph = bokeh.models.Circle(size=15,
-			                                                        fill_color=bokeh.transform.factor_cmap(
-				                                                        "kind",
-				                                                        bokeh.palettes.Category20[20],
-				                                                        factors=kinds)
-			                                                        )
+			network_graph.node_renderer.glyph = bokeh.models.Circle(
+				size=15,
+				fill_color=bokeh.transform.factor_cmap(
+					"kind",
+					bokeh.palettes.Category20[20],
+					factors=kinds
+				)
+			)
 
 			network_graph.edge_renderer.glyph = bokeh.models.MultiLine(
 				line_alpha=0.5,
 				line_width=1,
 				line_join='miter',
 			)
-			plot = bokeh.plotting.figure(tooltips=[("Object Name", "@name"), ("Kind", "@kind")],
-			                             tools="pan,wheel_zoom,save,reset",
-			                             x_range=bokeh.models.Range1d(-150, 150),
-			                             y_range=bokeh.models.Range1d(-150, 150),
-			                             title=graph_title)
+			plot = bokeh.plotting.figure(
+				tooltips=[("Object Name", "@name"), ("Kind", "@kind")],
+				tools="pan,wheel_zoom,save,reset",
+				x_range=bokeh.models.Range1d(-150, 150),
+				y_range=bokeh.models.Range1d(-150, 150),
+				title=graph_title)
 			plot.renderers.append(network_graph)
 			script, div = bokeh.embed.components(plot)
 			return flask.render_template(
 				"basic/page.html",
 				page_name="Transformations",
 				body_page="transformations/analyser.html",
-				listed_objects=markdown.markdown(ListObjects(json_graph).list_objects(),
-				                                 extensions=["codehilite", "extra"]),
+				listed_objects=markdown.markdown(
+					DescribeCode(json_graph).describe(),
+					extensions=["codehilite", "extra"]),
 				metalanguage_source_code=markdown.markdown(
 					"# Metalanguage\n\nGenerated metalanguage useful for sharing the graph or regenerate a code "
 					f"interface for future use. The metalanguage was stored in the JSON bellow.\n\n\t:::json\n\t{json_graph}"
