@@ -345,8 +345,8 @@ def prepare_source_code(
 			f"### Generated Java Source Code\n\n\t:::java\n\t{compiled_java}\n\n\n"
 	else:
 		result += \
-			f"### Generated C Source Code\n\nThe provided code doesn't have any function or class to generate this block\n\n\n" \
-			f"### Generated Java Source Code\n\n\tThe provided code doesn't have any function or class to generate this block\n\n\n"
+			f"### Generated C Source Code\n\nThe provided code doesn't have defined any `function` or `class`\n\n\n" \
+			f"### Generated Java Source Code\n\nThe provided code doesn't have defined any `function` or `class`\n\n\n"
 	return result + f"### {python_title}\n\n\t:::python\n\t{target_python_code}\n\n\n"
 
 
