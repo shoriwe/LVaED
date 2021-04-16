@@ -1,6 +1,6 @@
 # Binary Tree
 
-Binary trees are one of the most applicable DataTypes in computer science and can represent a lot of real concepts of the real world. With the base concept of every node contains only two sub-nodes (`left` and `right`), the binary tree is able to represent perfectly mathematical expression, family successions,
+Binary trees are one of the most applicable DataTypes in computer science and can represent a lot of real concepts of the real world. With the base concept of every node contains only two sub-nodes (`left` and `right`), the binary tree is able to represent perfectly mathematical expression, family successions.
 
 <div style="text-align: center"><a href="https://commons.wikimedia.org/wiki/File:Binary_tree.svg"><img src="/static/vendor/img/wikipedia/Binary_tree.svg" alt="BinaryTree" style="width: 500px; height: auto"/></a><p>[1] Binary tree | <a href="https://commons.wikimedia.org/wiki/File:Binary_tree.svg">https://commons.wikimedia.org/wiki/File:Binary_tree.svg</a></p></div>
 

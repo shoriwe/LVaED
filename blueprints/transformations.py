@@ -143,10 +143,13 @@ class Compiler(object):
 			else:
 				function_name = f"{class_definition.name}_{function_.name}"
 				return_type = "void"
-			result += f"\n\n{return_type} *{function_name}(" + f"{class_definition.name} *{function_.arguments[0]}" + (
-				", " + ", ".join(f"void *{argument}" for argument in function_.arguments[1:])
-				if function_.arguments[1:] else ""
-			) + ");"
+			if function_.arguments:
+				result += f"\n\n{return_type} *{function_name}(" + f"{class_definition.name} *{function_.arguments[0]}" + (
+					", " + ", ".join(f"void *{argument}" for argument in function_.arguments[1:])
+					if function_.arguments[1:] else ""
+				) + ");"
+			else:
+				result += f"\n\n{return_type} *{function_name}();"
 		return result
 
 	def compile_c_function(self, function_definition: FunctionDef) -> str:
@@ -156,7 +159,6 @@ class Compiler(object):
 	def compile_java_class(self, class_definition: ClassDef) -> str:
 		result = f"public class {class_definition.name}{{"
 		for function_ in class_definition.functions:
-			print(function_.name)
 			result += "\n\t\t\t"
 			if function_.name == "__init__":
 				result += f"public {class_definition.name}(" + ", ".join(
@@ -406,10 +408,15 @@ def transformations():
 									while isinstance(base, ast.Attribute):
 										parts.append(base.attr)
 										base = base.value
-									parts.append(base.id)
+									if isinstance(base, ast.Name):
+										parts.append(base.id)
+									else:
+										parts.append("Unknown")
 									base_name = ".".join(parts[::-1])
-								else:
+								elif isinstance(base, ast.Name):
 									base_name = base.id
+								else:
+									base_name = "Unknown"
 								if base_name == "object":
 									found_object_base = True
 								graph_data_manager.add_node(node_id, name=base_name, kind="Base")
