@@ -75,7 +75,8 @@ def load_articles(app: flask.Flask):
 		"stack": render_article("markdown/articles/stack.md"),
 		"queue": render_article("markdown/articles/queue.md"),
 		"binary_tree": render_article("markdown/articles/binary_tree.md"),
-		"avl_tree": render_article("markdown/articles/avl_tree.md")
+		"avl_tree": render_article("markdown/articles/avl_tree.md"),
+		"b_tree": render_article("markdown/articles/b_tree.md")
 	}
 
 
