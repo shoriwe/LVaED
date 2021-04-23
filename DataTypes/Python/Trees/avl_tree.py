@@ -1,8 +1,3 @@
-# AVL Tree (Python Implementation)
-
-# Source Code
-
-```python
 LEFT = 0
 RIGHT = 1
 ANY = 2
@@ -196,4 +191,3 @@ class AVLTree(object):
 	def remove(self, value):
 		if self.root is not None:
 			self.root.remove(self.root, value, None, ANY)
-```
