@@ -10,9 +10,9 @@ example_blueprint = flask.Blueprint("Example", "example")
 @example_blueprint.route("/examples")
 def examples():
 	return flask.render_template("basic/page.html",
-								 page_name="Examples",
-								 body_page="examples/navigation.html",
-								 )
+	                             page_name="Examples",
+	                             body_page="examples/navigation.html",
+	                             )
 
 
 @example_blueprint.route("/examples/<language>/<datatype>")
@@ -22,9 +22,9 @@ def present_datatype(language: str, datatype: str):
 		datatype_example = language_examples.get(datatype)
 		if datatype_example is not None:
 			return flask.render_template("basic/page.html",
-										 page_name="List",
-										 body_page="article.html",
-										 content=datatype_example)
+			                             page_name="List",
+			                             body_page="article.html",
+			                             content=datatype_example)
 	return flask.redirect("/home")
 
 
