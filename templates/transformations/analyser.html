@@ -12,13 +12,24 @@
 <body>
 <div class="article-markdown-container">
     <article class="markdown-body">
-        <h1>Network visualization</h1>
+        <h1>Graph representation</h1>
+        <p>This graph represents how your functions, imports and classes in the source code supplied are related to each
+            other and with the script.</p>
+        <br>
     </article>
     <div style="display: flex; justify-content: center;">
         {{ plot_div|indent(4)|safe }}
     </div>
     <article class="markdown-body">
-        {{ content|safe }}
+        <h1>Summary</h1>
+        {{ listed_objects|safe }}
+    </article>
+    <br>
+    <article class="markdown-body">
+        {{ metalanguage|safe }}
+    </article>
+    <article class="markdown-body">
+        {{ source_code|safe }}
     </article>
 </div>
 {{ js_resources|safe }}
