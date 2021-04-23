@@ -2,7 +2,7 @@
 
 # Source Code
 
-```c
+```python
 LEFT = 0
 RIGHT = 1
 ANY = 2
