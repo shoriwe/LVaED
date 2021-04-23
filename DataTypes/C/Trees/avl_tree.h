@@ -1,8 +1,3 @@
-# AVL Tree (C Implementation)
-
-# Source Code
-
-```c
 #ifndef COLLECTIONS_AVL_TREE_H
 #define COLLECTIONS_AVL_TREE_H
 
@@ -281,4 +276,3 @@ bool AVLTree_binary_remove_int(AVLTreeNode *node, int value, AVLTreeNode *parent
 }
 
 #endif //COLLECTIONS_AVL_TREE_H
-```
